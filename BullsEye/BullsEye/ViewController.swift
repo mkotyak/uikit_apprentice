@@ -1,15 +1,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var currentSliderValue: Int = 50
+    @IBOutlet private var slider: UISlider!
+    @IBOutlet private var targetLable: UILabel!
+
+    private var currentValue: Int = 0
+    private var targetValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        startNewRound()
     }
 
-    @IBAction func showAlert() {
-        let message = "The value of the slider is: \(currentSliderValue)"
+    @IBAction private func showAlert() {
+        let message = "The value of the slider is: \(currentValue)" + "\nThe targer value is: \(targetValue)"
 
         let alert = UIAlertController(
             title: "Hello, World",
@@ -29,9 +33,23 @@ class ViewController: UIViewController {
             animated: true,
             completion: nil
         )
+
+        startNewRound()
     }
 
-    @IBAction func sliderMoved(_ slider: UISlider) {
-        currentSliderValue = lroundf(slider.value)
+    @IBAction private func sliderMoved(_ slider: UISlider) {
+        currentValue = lroundf(slider.value)
+    }
+
+    private func startNewRound() {
+        targetValue = Int.random(in: 0 ... 100)
+        currentValue = 50
+        slider.value = Float(currentValue)
+
+        updateLabels()
+    }
+
+    private func updateLabels() {
+        targetLable.text = String(targetValue)
     }
 }
