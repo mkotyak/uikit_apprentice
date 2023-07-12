@@ -15,21 +15,42 @@ class ViewController: UIViewController {
         abs(targetValue - currentValue)
     }
 
-    private var points: Int {
-        100 - difference
+    private var roundPoints: Int {
+        (100 - difference) + bonusRoundPoints
+    }
+
+    private var bonusRoundPoints: Int {
+        switch difference {
+        case 0:
+            return 100
+        case 1:
+            return 50
+        default:
+            return 0
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
     }
 
     @IBAction private func showAlert() {
-        let message = "You scored \(points) points"
-        incrementTotalScore(by: points)
+        let title: String
+        if difference == 0 {
+            title = "Perfect!"
+        } else if difference < 5 {
+            title = "You almost had it!"
+        } else if difference < 10 {
+            title = "Pretty good!"
+        } else {
+            title = "Not even close..."
+        }
+
+        let message = "You scored \(roundPoints) points"
 
         let alert = UIAlertController(
-            title: "Hello, World",
+            title: title,
             message: message,
             preferredStyle: .alert
         )
@@ -37,21 +58,28 @@ class ViewController: UIViewController {
         let action = UIAlertAction(
             title: "OK",
             style: .default
-        )
+        ) { [weak self] _ in
+            guard let self else {
+                return
+            }
+
+            self.incrementTotalScore(by: self.roundPoints)
+            self.startNewRound()
+        }
 
         alert.addAction(action)
-
-        present(
-            alert,
-            animated: true,
-            completion: nil
-        )
-
-        startNewRound()
+        present(alert, animated: true)
     }
 
     @IBAction private func sliderMoved(_ slider: UISlider) {
         currentValue = lroundf(slider.value)
+    }
+
+    @IBAction private func startNewGame() {
+        totalScore = 0
+        round = 0
+
+        startNewRound()
     }
 
     private func startNewRound() {
