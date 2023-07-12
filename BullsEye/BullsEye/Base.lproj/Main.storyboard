@@ -86,9 +86,8 @@
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gng-sb-0hs">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gng-sb-0hs">
                                         <rect key="frame" x="20" y="320" width="32" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="StartOverIcon" backgroundImage="SmallButton"/>
                                         <connections>
@@ -113,9 +112,8 @@
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-9Y-w8G">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEt-9Y-w8G">
                                         <rect key="frame" x="603" y="320" width="32" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="InfoButton" backgroundImage="SmallButton"/>
                                         <connections>
@@ -141,10 +139,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="372" id="2lY-E8-VHv"/>
+                                    <constraint firstItem="gng-sb-0hs" firstAttribute="leading" secondItem="wUq-N4-Alj" secondAttribute="leading" constant="20" id="6EI-Fx-1Cu"/>
+                                    <constraint firstAttribute="bottom" secondItem="kEt-9Y-w8G" secondAttribute="bottom" constant="20" id="7oZ-yz-ktE"/>
                                     <constraint firstAttribute="bottom" secondItem="fdc-g2-iPY" secondAttribute="bottom" constant="130" id="8LO-7c-bAG"/>
                                     <constraint firstAttribute="width" constant="655" id="FIj-t8-Kox"/>
                                     <constraint firstItem="E8j-nI-76u" firstAttribute="top" secondItem="wUq-N4-Alj" secondAttribute="top" constant="20" id="Fhz-Jl-jSK"/>
+                                    <constraint firstAttribute="bottom" secondItem="gng-sb-0hs" secondAttribute="bottom" constant="20" id="YZB-CW-e15"/>
                                     <constraint firstItem="fdc-g2-iPY" firstAttribute="centerX" secondItem="wUq-N4-Alj" secondAttribute="centerX" id="flq-Nt-stB"/>
+                                    <constraint firstAttribute="trailing" secondItem="kEt-9Y-w8G" secondAttribute="trailing" constant="20" id="grO-a6-aRg"/>
                                     <constraint firstItem="E8j-nI-76u" firstAttribute="centerX" secondItem="wUq-N4-Alj" secondAttribute="centerX" id="iJq-Ym-hmJ"/>
                                 </constraints>
                             </view>
