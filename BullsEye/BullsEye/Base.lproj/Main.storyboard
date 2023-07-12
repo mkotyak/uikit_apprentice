@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="2Gr-Af-w7Q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="2Gr-Af-w7Q">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-g2-iPY">
                                 <rect key="frame" x="281" y="199" width="98" height="37"/>
@@ -137,6 +136,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Gr-Af-w7Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lwa-2e-ul4"/>
+                            <constraint firstItem="2Gr-Af-w7Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qYp-YB-2oa"/>
+                            <constraint firstItem="2Gr-Af-w7Q" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rSH-3M-2fM"/>
+                            <constraint firstItem="2Gr-Af-w7Q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rVT-hJ-OBc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="roundLable" destination="isQ-aV-Epo" id="auq-ab-URu"/>
@@ -157,9 +162,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="sek-xm-EfI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="sek-xm-EfI">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Png-SI-T32">
                                 <rect key="frame" x="300" y="300" width="67" height="35"/>
@@ -183,6 +187,12 @@
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vce-ZJ-ZAs"/>
+                        <constraints>
+                            <constraint firstItem="sek-xm-EfI" firstAttribute="top" secondItem="vce-ZJ-ZAs" secondAttribute="top" id="A7T-fU-4a1"/>
+                            <constraint firstItem="sek-xm-EfI" firstAttribute="trailing" secondItem="vce-ZJ-ZAs" secondAttribute="trailing" id="XGF-vH-2sT"/>
+                            <constraint firstItem="sek-xm-EfI" firstAttribute="leading" secondItem="vce-ZJ-ZAs" secondAttribute="leading" id="bn6-uz-4Hb"/>
+                            <constraint firstItem="sek-xm-EfI" firstAttribute="bottom" secondItem="vce-ZJ-ZAs" secondAttribute="bottom" id="udh-gm-qTi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webview" destination="EVQ-qx-8Qh" id="vCV-bV-QNW"/>
