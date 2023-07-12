@@ -44,7 +44,7 @@
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-XI-K6K">
-                                        <rect key="frame" x="62" y="107" width="532" height="30"/>
+                                        <rect key="frame" x="62" y="106" width="532" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="Jzq-Pm-zAH"/>
@@ -122,8 +122,8 @@
                                             <segue destination="zkS-5x-nSg" kind="presentation" modalTransitionStyle="flipHorizontal" id="pLy-8k-RRG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-g2-iPY">
-                                        <rect key="frame" x="277.33333333333331" y="199" width="100" height="37"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-g2-iPY">
+                                        <rect key="frame" x="277.33333333333331" y="205" width="100" height="37"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="0.0" height="1"/>
@@ -141,9 +141,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="372" id="2lY-E8-VHv"/>
+                                    <constraint firstAttribute="bottom" secondItem="fdc-g2-iPY" secondAttribute="bottom" constant="130" id="8LO-7c-bAG"/>
                                     <constraint firstAttribute="width" constant="655" id="FIj-t8-Kox"/>
                                     <constraint firstItem="E8j-nI-76u" firstAttribute="top" secondItem="wUq-N4-Alj" secondAttribute="top" constant="20" id="Fhz-Jl-jSK"/>
-                                    <constraint firstItem="fdc-g2-iPY" firstAttribute="centerX" secondItem="wUq-N4-Alj" secondAttribute="centerX" id="c2k-aG-l7O"/>
+                                    <constraint firstItem="fdc-g2-iPY" firstAttribute="centerX" secondItem="wUq-N4-Alj" secondAttribute="centerX" id="flq-Nt-stB"/>
                                     <constraint firstItem="E8j-nI-76u" firstAttribute="centerX" secondItem="wUq-N4-Alj" secondAttribute="centerX" id="iJq-Ym-hmJ"/>
                                 </constraints>
                             </view>
