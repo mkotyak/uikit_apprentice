@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     @IBOutlet private var slider: UISlider!
     @IBOutlet private var targetLable: UILabel!
     @IBOutlet private var scoreLable: UILabel!
