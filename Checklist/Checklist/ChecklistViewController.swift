@@ -6,6 +6,8 @@ class ChecklistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         items = [
             .init(text: "Walk the dog"),
             .init(text: "Brush my teeth"),
@@ -74,5 +76,26 @@ extension ChecklistViewController {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        items.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+}
+
+// MARK: - Actions
+
+extension ChecklistViewController {
+    @IBAction func addItem() {
+        let newRawIndex = items.count
+        let indexPath: IndexPath = .init(row: newRawIndex, section: 0)
+        
+        items.append(.init(text: "I am a new row"))
+        tableView.insertRows(at: [indexPath], with: .automatic)
     }
 }
