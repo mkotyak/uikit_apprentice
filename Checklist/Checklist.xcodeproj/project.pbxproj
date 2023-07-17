@@ -14,6 +14,7 @@
 		73FF168F2A652FB400F2FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73FF168E2A652FB400F2FB90 /* Assets.xcassets */; };
 		73FF16922A652FB400F2FB90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73FF16902A652FB400F2FB90 /* LaunchScreen.storyboard */; };
 		73FF169A2A65577600F2FB90 /* CheckListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16992A65577600F2FB90 /* CheckListItem.swift */; };
+		73FF169D2A65978600F2FB90 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF169C2A65978600F2FB90 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		73FF16912A652FB400F2FB90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73FF16932A652FB400F2FB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73FF16992A65577600F2FB90 /* CheckListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListItem.swift; sourceTree = "<group>"; };
+		73FF169C2A65978600F2FB90 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				73FF16852A652FB300F2FB90 /* AppDelegate.swift */,
 				73FF16872A652FB300F2FB90 /* SceneDelegate.swift */,
 				73FF16892A652FB300F2FB90 /* ChecklistViewController.swift */,
+				73FF169C2A65978600F2FB90 /* AddItemViewController.swift */,
 				73FF168B2A652FB300F2FB90 /* Main.storyboard */,
 				73FF168E2A652FB400F2FB90 /* Assets.xcassets */,
 				73FF16902A652FB400F2FB90 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73FF169D2A65978600F2FB90 /* AddItemViewController.swift in Sources */,
 				73FF168A2A652FB300F2FB90 /* ChecklistViewController.swift in Sources */,
 				73FF16862A652FB300F2FB90 /* AppDelegate.swift in Sources */,
 				73FF16882A652FB300F2FB90 /* SceneDelegate.swift in Sources */,
