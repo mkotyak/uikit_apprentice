@@ -31,6 +31,14 @@ class ChecklistViewController: UITableViewController {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
+
+    private func addNewItem(_ item: ChecklistItem) {
+        let newRawIndex = items.count
+        let indexPath: IndexPath = .init(row: newRawIndex, section: 0)
+
+        items.append(item)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
 }
 
 // MARK: - Table view Data Source
@@ -88,18 +96,6 @@ extension ChecklistViewController {
     }
 }
 
-// MARK: - Actions
-
-extension ChecklistViewController {
-    @IBAction func addItem() {
-        let newRawIndex = items.count
-        let indexPath: IndexPath = .init(row: newRawIndex, section: 0)
-
-        items.append(.init(text: "I am a new row"))
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-}
-
 // MARK: - Navigation
 
 extension ChecklistViewController {
@@ -121,7 +117,11 @@ extension ChecklistViewController: ChecklistItemCreatorDelegate {
         navigationController?.popViewController(animated: true)
     }
 
-    func checklistItemCreatorViewController(_ controller: ChecklistItemCreatorViewController, didFinishCreation item: ChecklistItem) {
+    func checklistItemCreatorViewController(
+        _ controller: ChecklistItemCreatorViewController,
+        didFinishCreation item: ChecklistItem
+    ) {
+        addNewItem(item)
         navigationController?.popViewController(animated: true)
     }
 }
