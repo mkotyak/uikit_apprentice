@@ -79,6 +79,9 @@
                                                     <rect key="frame" x="8" y="8" width="359" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="done" destination="Wl3-Xx-abY" eventType="editingDidEndOnExit" id="NdR-7d-z03"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
