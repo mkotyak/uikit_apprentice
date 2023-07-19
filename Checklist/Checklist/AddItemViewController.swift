@@ -1,6 +1,7 @@
 import UIKit
 
 class AddItemViewController: UITableViewController {
+    @IBOutlet var doneBarButton: UIBarButtonItem!
     @IBOutlet var textField: UITextField!
 
     override func viewDidLoad() {
@@ -35,5 +36,38 @@ extension AddItemViewController {
         willSelectRowAt indexPath: IndexPath
     ) -> IndexPath? {
         return nil
+    }
+}
+
+// MARK: - Text field delegate
+
+extension AddItemViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        guard
+            let oldText = textField.text,
+            let stringRange = Range(range, in: oldText)
+        else {
+            doneBarButton.isEnabled = false
+
+            return false
+        }
+
+        let newText = oldText.replacingCharacters(
+            in: stringRange,
+            with: string
+        )
+
+        doneBarButton.isEnabled = !newText.isEmpty
+
+        return true
+    }
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
     }
 }
