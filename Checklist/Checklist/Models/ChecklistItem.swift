@@ -1,6 +1,6 @@
 import Foundation
 
-class CheckListItem {
+class ChecklistItem {
     var text: String
     var isChecked: Bool = false
 

@@ -1,13 +1,13 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {
-    private var items: [CheckListItem] = []
-    
+    private var items: [ChecklistItem] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+
         items = [
             .init(text: "Walk the dog"),
             .init(text: "Brush my teeth"),
@@ -16,17 +16,17 @@ class ChecklistViewController: UITableViewController {
             .init(text: "Eat ice cream")
         ]
     }
-    
+
     private func configureCheckmark(
         for cell: UITableViewCell,
-        with item: CheckListItem
+        with item: ChecklistItem
     ) {
         cell.accessoryType = item.isChecked ? .checkmark : .none
     }
-    
+
     private func configureText(
         for cell: UITableViewCell,
-        with item: CheckListItem
+        with item: ChecklistItem
     ) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
@@ -42,7 +42,7 @@ extension ChecklistViewController {
     ) -> Int {
         return items.count
     }
-    
+
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
@@ -51,12 +51,12 @@ extension ChecklistViewController {
             withIdentifier: "ChecklistItem",
             for: indexPath
         )
-        
+
         let item = items[indexPath.row]
-        
+
         configureText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
-        
+
         return cell
     }
 }
@@ -74,10 +74,10 @@ extension ChecklistViewController {
             item.isChecked.toggle()
             configureCheckmark(for: cell, with: item)
         }
-        
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
@@ -94,8 +94,34 @@ extension ChecklistViewController {
     @IBAction func addItem() {
         let newRawIndex = items.count
         let indexPath: IndexPath = .init(row: newRawIndex, section: 0)
-        
+
         items.append(.init(text: "I am a new row"))
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+}
+
+// MARK: - Navigation
+
+extension ChecklistViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "ChecklistItemCreator" {
+            let controller = segue.destination as! ChecklistItemCreatorViewController
+            controller.delegate = self
+        }
+    }
+}
+
+// MARK: - ChecklistItemCreatorDelegate
+
+extension ChecklistViewController: ChecklistItemCreatorDelegate {
+    func checklistItemCreatorViewControllerDidCancel(_ controller: ChecklistItemCreatorViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func checklistItemCreatorViewController(_ controller: ChecklistItemCreatorViewController, didFinishCreation item: ChecklistItem) {
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -1,8 +1,10 @@
 import UIKit
 
-class AddItemViewController: UITableViewController {
-    @IBOutlet var doneBarButton: UIBarButtonItem!
-    @IBOutlet var textField: UITextField!
+class ChecklistItemCreatorViewController: UITableViewController {
+    @IBOutlet private var doneBarButton: UIBarButtonItem!
+    @IBOutlet private var textField: UITextField!
+
+    weak var delegate: ChecklistItemCreatorDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,19 +20,24 @@ class AddItemViewController: UITableViewController {
 
 // MARK: - Actions
 
-extension AddItemViewController {
+extension ChecklistItemCreatorViewController {
     @IBAction private func cancel() {
-        navigationController?.popViewController(animated: true)
+        delegate?.checklistItemCreatorViewControllerDidCancel(self)
     }
 
     @IBAction private func done() {
-        navigationController?.popViewController(animated: true)
+        let item: ChecklistItem = .init(text: textField.text ?? "")
+
+        delegate?.checklistItemCreatorViewController(
+            self,
+            didFinishCreation: item
+        )
     }
 }
 
 // MARK: - Table view Delegate
 
-extension AddItemViewController {
+extension ChecklistItemCreatorViewController {
     override func tableView(
         _ tableView: UITableView,
         willSelectRowAt indexPath: IndexPath
@@ -41,7 +48,7 @@ extension AddItemViewController {
 
 // MARK: - Text field delegate
 
-extension AddItemViewController: UITextFieldDelegate {
+extension ChecklistItemCreatorViewController: UITextFieldDelegate {
     func textField(
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
