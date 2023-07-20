@@ -132,4 +132,19 @@ extension ChecklistViewController: ChecklistItemCreatorDelegate {
         addNewItem(item)
         navigationController?.popViewController(animated: true)
     }
+
+    func addItemViewController(
+        _ controller: ChecklistItemCreatorViewController,
+        didFinishEditing item: ChecklistItem
+    ) {
+        if let index = items.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, with: item)
+            }
+        }
+
+        navigationController?.popViewController(animated: true)
+    }
 }

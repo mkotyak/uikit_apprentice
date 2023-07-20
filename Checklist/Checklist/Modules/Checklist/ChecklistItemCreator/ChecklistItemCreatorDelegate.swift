@@ -7,4 +7,9 @@ protocol ChecklistItemCreatorDelegate: AnyObject {
         _ controller: ChecklistItemCreatorViewController,
         didFinishCreation item: ChecklistItem
     )
+
+    func addItemViewController(
+        _ controller: ChecklistItemCreatorViewController,
+        didFinishEditing item: ChecklistItem
+    )
 }

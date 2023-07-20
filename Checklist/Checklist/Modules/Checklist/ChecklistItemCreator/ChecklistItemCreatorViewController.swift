@@ -15,6 +15,7 @@ class ChecklistItemCreatorViewController: UITableViewController {
         if let itemToEdit {
             title = "Edit Item"
             textField.text = itemToEdit.text
+            doneBarButton.isEnabled = true
         }
     }
 
@@ -32,12 +33,20 @@ extension ChecklistItemCreatorViewController {
     }
 
     @IBAction private func done() {
-        let item: ChecklistItem = .init(text: textField.text ?? "")
+        if let itemToEdit {
+            itemToEdit.text = textField.text ?? ""
+            delegate?.addItemViewController(
+                self,
+                didFinishEditing: itemToEdit
+            )
+        } else {
+            let item: ChecklistItem = .init(text: textField.text ?? "")
 
-        delegate?.checklistItemCreatorViewController(
-            self,
-            didFinishCreation: item
-        )
+            delegate?.checklistItemCreatorViewController(
+                self,
+                didFinishCreation: item
+            )
+        }
     }
 }
 

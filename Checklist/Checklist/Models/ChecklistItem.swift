@@ -12,3 +12,9 @@ class ChecklistItem {
         self.isChecked = isChecked
     }
 }
+
+extension ChecklistItem: Equatable {
+    static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
+        lhs.text == rhs.text && rhs.isChecked == lhs.isChecked
+    }
+}
