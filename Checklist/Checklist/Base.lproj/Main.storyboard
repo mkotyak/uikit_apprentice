@@ -44,6 +44,9 @@
                                         <constraint firstItem="M6e-hh-siA" firstAttribute="centerY" secondItem="Uy7-GG-pz0" secondAttribute="centerY" id="zaj-Co-zCx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Wl3-Xx-abY" kind="show" identifier="ChecklistItemEditor" trigger="accessoryAction" id="ypJ-lr-eQU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -148,6 +151,9 @@
             <point key="canvasLocation" x="-738.39999999999998" y="-196.55172413793105"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ypJ-lr-eQU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
