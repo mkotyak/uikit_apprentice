@@ -1,11 +1,11 @@
 import UIKit
 
-class ChecklistItemCreatorViewController: UITableViewController {
+class ChecklistItemDetailViewController: UITableViewController {
     @IBOutlet private var doneBarButton: UIBarButtonItem!
     @IBOutlet private var textField: UITextField!
 
     var itemToEdit: ChecklistItem?
-    weak var delegate: ChecklistItemCreatorDelegate?
+    weak var delegate: ChecklistItemDetailDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,22 +27,22 @@ class ChecklistItemCreatorViewController: UITableViewController {
 
 // MARK: - Actions
 
-extension ChecklistItemCreatorViewController {
+extension ChecklistItemDetailViewController {
     @IBAction private func cancel() {
-        delegate?.checklistItemCreatorViewControllerDidCancel(self)
+        delegate?.checklistItemDetailViewControllerDidCancel(self)
     }
 
     @IBAction private func done() {
         if let itemToEdit {
             itemToEdit.text = textField.text ?? ""
-            delegate?.addItemViewController(
+            delegate?.checklistItemDetailViewController(
                 self,
                 didFinishEditing: itemToEdit
             )
         } else {
             let item: ChecklistItem = .init(text: textField.text ?? "")
 
-            delegate?.checklistItemCreatorViewController(
+            delegate?.checklistItemDetailViewController(
                 self,
                 didFinishCreation: item
             )
@@ -52,7 +52,7 @@ extension ChecklistItemCreatorViewController {
 
 // MARK: - Table view Delegate
 
-extension ChecklistItemCreatorViewController {
+extension ChecklistItemDetailViewController {
     override func tableView(
         _ tableView: UITableView,
         willSelectRowAt indexPath: IndexPath
@@ -63,7 +63,7 @@ extension ChecklistItemCreatorViewController {
 
 // MARK: - Text field delegate
 
-extension ChecklistItemCreatorViewController: UITextFieldDelegate {
+extension ChecklistItemDetailViewController: UITextFieldDelegate {
     func textField(
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,

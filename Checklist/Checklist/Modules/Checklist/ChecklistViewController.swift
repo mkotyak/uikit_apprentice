@@ -104,11 +104,11 @@ extension ChecklistViewController {
         for segue: UIStoryboardSegue,
         sender: Any?
     ) {
-        if segue.identifier == "ChecklistItemCreator" {
-            let controller = segue.destination as! ChecklistItemCreatorViewController
+        if segue.identifier == "ChecklistItemDetail" {
+            let controller = segue.destination as! ChecklistItemDetailViewController
             controller.delegate = self
         } else if segue.identifier == "ChecklistItemEditor" {
-            let controller = segue.destination as! ChecklistItemCreatorViewController
+            let controller = segue.destination as! ChecklistItemDetailViewController
             controller.delegate = self
 
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
@@ -120,21 +120,21 @@ extension ChecklistViewController {
 
 // MARK: - ChecklistItemCreatorDelegate
 
-extension ChecklistViewController: ChecklistItemCreatorDelegate {
-    func checklistItemCreatorViewControllerDidCancel(_ controller: ChecklistItemCreatorViewController) {
+extension ChecklistViewController: ChecklistItemDetailDelegate {
+    func checklistItemDetailViewControllerDidCancel(_ controller: ChecklistItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
 
-    func checklistItemCreatorViewController(
-        _ controller: ChecklistItemCreatorViewController,
+    func checklistItemDetailViewController(
+        _ controller: ChecklistItemDetailViewController,
         didFinishCreation item: ChecklistItem
     ) {
         addNewItem(item)
         navigationController?.popViewController(animated: true)
     }
 
-    func addItemViewController(
-        _ controller: ChecklistItemCreatorViewController,
+    func checklistItemDetailViewController(
+        _ controller: ChecklistItemDetailViewController,
         didFinishEditing item: ChecklistItem
     ) {
         if let index = items.firstIndex(of: item) {
