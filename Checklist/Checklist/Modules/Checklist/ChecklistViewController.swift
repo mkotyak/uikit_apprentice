@@ -21,7 +21,8 @@ class ChecklistViewController: UITableViewController {
         for cell: UITableViewCell,
         with item: ChecklistItem
     ) {
-        cell.accessoryType = item.isChecked ? .checkmark : .none
+        let label = cell.viewWithTag(1001) as! UILabel
+        label.text = item.isChecked ? "√" : ""
     }
 
     private func configureText(
