@@ -107,6 +107,13 @@ extension ChecklistViewController {
         if segue.identifier == "ChecklistItemCreator" {
             let controller = segue.destination as! ChecklistItemCreatorViewController
             controller.delegate = self
+        } else if segue.identifier == "ChecklistItemEditor" {
+            let controller = segue.destination as! ChecklistItemCreatorViewController
+            controller.delegate = self
+
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
 }

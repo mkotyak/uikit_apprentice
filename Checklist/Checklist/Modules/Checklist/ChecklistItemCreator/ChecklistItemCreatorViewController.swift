@@ -4,12 +4,18 @@ class ChecklistItemCreatorViewController: UITableViewController {
     @IBOutlet private var doneBarButton: UIBarButtonItem!
     @IBOutlet private var textField: UITextField!
 
+    var itemToEdit: ChecklistItem?
     weak var delegate: ChecklistItemCreatorDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.largeTitleDisplayMode = .never
+
+        if let itemToEdit {
+            title = "Edit Item"
+            textField.text = itemToEdit.text
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
