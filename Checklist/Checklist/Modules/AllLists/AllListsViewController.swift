@@ -73,6 +73,20 @@ extension AllListsViewController {
         lists.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+
+    override func tableView(
+        _ tableView: UITableView,
+        accessoryButtonTappedForRowWith indexPath: IndexPath
+    ) {
+        let controller = storyboard?.instantiateViewController(
+            withIdentifier: "AllListsDetailViewController"
+        ) as! AllListsDetailViewController
+
+        controller.delegate = self
+        controller.checklistToEdit = lists[indexPath.row]
+
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 // MARK: - Navigation
@@ -88,13 +102,6 @@ extension AllListsViewController {
         } else if segue.identifier == "AddChecklist" {
             let controller = segue.destination as! AllListsDetailViewController
             controller.delegate = self
-        } else if segue.identifier == "EditChecklist" {
-            let controller = segue.destination as! AllListsDetailViewController
-            controller.delegate = self
-
-            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                controller.checklistToEdit = lists[indexPath.row]
-            }
         }
     }
 }

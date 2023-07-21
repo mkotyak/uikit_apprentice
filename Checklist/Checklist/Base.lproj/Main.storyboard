@@ -40,7 +40,7 @@
         <!--Add Checklist-->
         <scene sceneID="AA0-zY-iLT">
             <objects>
-                <tableViewController id="RGr-id-3AE" customClass="AllListsDetailViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AllListsDetailViewController" id="RGr-id-3AE" customClass="AllListsDetailViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="LgD-Cb-Fze">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
