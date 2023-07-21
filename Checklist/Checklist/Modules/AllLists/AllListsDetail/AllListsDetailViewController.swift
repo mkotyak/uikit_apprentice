@@ -37,7 +37,11 @@ extension AllListsDetailViewController {
                 didFinishEditing: checklistToEdit
             )
         } else {
-            let checklist = Checklist(name: textField.text ?? "")
+            let checklist = Checklist(
+                name: textField.text ?? "",
+                items: []
+            )
+            
             delegate?.allListsDetailViewController(
                 self,
                 didFinishAdding: checklist
