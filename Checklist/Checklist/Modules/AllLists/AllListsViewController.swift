@@ -5,6 +5,8 @@ class AllListsViewController: UITableViewController {
         static var cellIdentifier: String { "ChecklistCell" }
     }
 
+    private var lists: [Checklist] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -14,6 +16,13 @@ class AllListsViewController: UITableViewController {
             UITableViewCell.self,
             forCellReuseIdentifier: Constants.cellIdentifier
         )
+
+        lists = [
+            .init(name: "Birthdays"),
+            .init(name: "Groceries"),
+            .init(name: "Cool Apps"),
+            .init(name: "To Do")
+        ]
     }
 }
 
@@ -24,7 +33,7 @@ extension AllListsViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 3
+        return lists.count
     }
 
     override func tableView(
@@ -36,7 +45,8 @@ extension AllListsViewController {
             for: indexPath
         )
 
-        cell.textLabel?.text = "List \(indexPath.row)"
+        cell.textLabel?.text = lists[indexPath.row].name
+        cell.accessoryType = .detailDisclosureButton
 
         return cell
     }

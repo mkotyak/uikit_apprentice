@@ -17,6 +17,7 @@
 		73FF169D2A65978600F2FB90 /* ChecklistItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF169C2A65978600F2FB90 /* ChecklistItemDetailViewController.swift */; };
 		73FF16A32A683E7D00F2FB90 /* ChecklistItemDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16A22A683E7D00F2FB90 /* ChecklistItemDetailDelegate.swift */; };
 		73FF16A62A6A9EC400F2FB90 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16A52A6A9EC400F2FB90 /* AllListsViewController.swift */; };
+		73FF16A82A6AA9A500F2FB90 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16A72A6AA9A500F2FB90 /* Checklist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		73FF169C2A65978600F2FB90 /* ChecklistItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemDetailViewController.swift; sourceTree = "<group>"; };
 		73FF16A22A683E7D00F2FB90 /* ChecklistItemDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemDetailDelegate.swift; sourceTree = "<group>"; };
 		73FF16A52A6A9EC400F2FB90 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		73FF16A72A6AA9A500F2FB90 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		73FF169B2A6557A100F2FB90 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				73FF16A72A6AA9A500F2FB90 /* Checklist.swift */,
 				73FF16992A65577600F2FB90 /* ChecklistItem.swift */,
 			);
 			path = Models;
@@ -194,6 +197,7 @@
 				73FF16A62A6A9EC400F2FB90 /* AllListsViewController.swift in Sources */,
 				73FF16A32A683E7D00F2FB90 /* ChecklistItemDetailDelegate.swift in Sources */,
 				73FF168A2A652FB300F2FB90 /* ChecklistViewController.swift in Sources */,
+				73FF16A82A6AA9A500F2FB90 /* Checklist.swift in Sources */,
 				73FF16862A652FB300F2FB90 /* AppDelegate.swift in Sources */,
 				73FF16882A652FB300F2FB90 /* SceneDelegate.swift in Sources */,
 				73FF169A2A65577600F2FB90 /* ChecklistItem.swift in Sources */,
