@@ -7,7 +7,7 @@ class AllListsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
 
         tableView.register(
@@ -15,9 +15,11 @@ class AllListsViewController: UITableViewController {
             forCellReuseIdentifier: Constants.cellIdentifier
         )
     }
+}
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
 
+extension AllListsViewController {
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -37,5 +39,19 @@ class AllListsViewController: UITableViewController {
         cell.textLabel?.text = "List \(indexPath.row)"
 
         return cell
+    }
+}
+
+// MARK: - Table view delegates
+
+extension AllListsViewController {
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        performSegue(
+            withIdentifier: "ShowChecklist",
+            sender: nibName
+        )
     }
 }

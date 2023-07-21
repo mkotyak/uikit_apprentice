@@ -23,7 +23,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklists" id="UdJ-ys-47Q"/>
                     <connections>
-                        <segue destination="D9S-7n-JNQ" kind="show" id="ZlS-Bg-TJI"/>
+                        <segue destination="D9S-7n-JNQ" kind="show" identifier="ShowChecklist" id="ZlS-Bg-TJI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZs-vM-h8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,7 +76,7 @@
                             <outlet property="delegate" destination="D9S-7n-JNQ" id="lKa-Ps-tZv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklist" id="mj8-89-wgk" userLabel="Name of the checklist">
+                    <navigationItem key="navigationItem" title="Name if the checklist" id="mj8-89-wgk" userLabel="Name of the checklist">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ns2-PH-XnS">
                             <connections>
                                 <segue destination="Wl3-Xx-abY" kind="show" identifier="ChecklistItemDetail" id="tRG-xR-JzI"/>
