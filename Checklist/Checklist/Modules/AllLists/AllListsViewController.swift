@@ -64,6 +64,15 @@ extension AllListsViewController {
             sender: lists[indexPath.row]
         )
     }
+
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        lists.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 }
 
 // MARK: - Navigation
@@ -76,6 +85,52 @@ extension AllListsViewController {
         if segue.identifier == "ShowChecklist" {
             let controller = segue.destination as! ChecklistViewController
             controller.checklist = sender as? Checklist
+        } else if segue.identifier == "AddChecklist" {
+            let controller = segue.destination as! AllListsDetailViewController
+            controller.delegate = self
+        } else if segue.identifier == "EditChecklist" {
+            let controller = segue.destination as! AllListsDetailViewController
+            controller.delegate = self
+
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.checklistToEdit = lists[indexPath.row]
+            }
         }
+    }
+}
+
+// MARK: - AllListsDetailViewControllerDelegate
+
+extension AllListsViewController: AllListsDetailViewControllerDelegate {
+    func allListsDetailViewControllerDidCancel(_ controller: AllListsDetailViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func allListsDetailViewController(
+        _ controller: AllListsDetailViewController,
+        didFinishAdding checklist: Checklist
+    ) {
+        let newRowIndex = lists.count
+        lists.append(checklist)
+
+        let indexPath: IndexPath = .init(row: newRowIndex, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+
+        navigationController?.popViewController(animated: true)
+    }
+
+    func allListsDetailViewController(
+        _ controller: AllListsDetailViewController,
+        didFinishEditing checklist: Checklist
+    ) {
+        if let index = lists.firstIndex(of: checklist) {
+            let indexPath = IndexPath(row: index, section: 0)
+
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.textLabel?.text = checklist.name
+            }
+        }
+
+        navigationController?.popViewController(animated: true)
     }
 }
