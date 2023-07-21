@@ -43,11 +43,28 @@
                             <tableViewSection id="kOW-e2-DWN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g5r-Vt-qnB">
-                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g5r-Vt-qnB" id="eVq-jX-8by">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMC-NY-hLX">
+                                                    <rect key="frame" x="16" y="11" width="343" height="22.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="RGr-id-3AE" eventType="editingDidEndOnExit" id="lNw-Jm-TVQ"/>
+                                                        <outlet property="delegate" destination="RGr-id-3AE" id="KVQ-7W-EX9"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="NMC-NY-hLX" secondAttribute="bottom" constant="11" id="1Qh-Fd-7fD"/>
+                                                <constraint firstItem="NMC-NY-hLX" firstAttribute="leading" secondItem="eVq-jX-8by" secondAttribute="leading" constant="16" id="Jac-aQ-dat"/>
+                                                <constraint firstAttribute="trailing" secondItem="NMC-NY-hLX" secondAttribute="trailing" constant="16" id="gFe-eA-DSV"/>
+                                                <constraint firstItem="NMC-NY-hLX" firstAttribute="top" secondItem="eVq-jX-8by" secondAttribute="top" constant="11" id="ldb-YU-A8A"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -70,10 +87,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="NMC-NY-hLX" id="HeY-PE-54k"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzp-gm-pAj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679" y="537"/>
+            <point key="canvasLocation" x="-679.20000000000005" y="536.58170914542734"/>
         </scene>
         <!--Checklists-->
         <scene sceneID="PoT-bQ-sNh">
