@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 class ChecklistViewController: UITableViewController {
+    var checklist: Checklist?
     private var items: [ChecklistItem] = []
 
     private var documentsDirectoryURL: URL? {
@@ -25,6 +26,7 @@ class ChecklistViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .never
 
         loadChecklistItems()
+        title = checklist?.name ?? "Unknown"
     }
 
     private func configureCheckmark(

@@ -61,7 +61,21 @@ extension AllListsViewController {
     ) {
         performSegue(
             withIdentifier: "ShowChecklist",
-            sender: nibName
+            sender: lists[indexPath.row]
         )
+    }
+}
+
+// MARK: - Navigation
+
+extension AllListsViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "ShowChecklist" {
+            let controller = segue.destination as! ChecklistViewController
+            controller.checklist = sender as? Checklist
+        }
     }
 }
