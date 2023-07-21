@@ -1,20 +1,30 @@
+import Foundation
 import UIKit
 
 class ChecklistViewController: UITableViewController {
     private var items: [ChecklistItem] = []
+
+    private var documentsDirectoryURL: URL? {
+        FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first
+    }
+
+    private var dataURL: URL? {
+        guard let documentsDirectoryURL else {
+            return nil
+        }
+
+        return documentsDirectoryURL.appendingPathComponent("Checklists.plist")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        items = [
-            .init(text: "Walk the dog"),
-            .init(text: "Brush my teeth"),
-            .init(text: "Learn iOS development"),
-            .init(text: "Soccer practice"),
-            .init(text: "Eat ice cream")
-        ]
+        loadChecklistItems()
     }
 
     private func configureCheckmark(
@@ -39,6 +49,42 @@ class ChecklistViewController: UITableViewController {
 
         items.append(item)
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
+    private func saveChecklistItems() {
+        guard let dataURL else {
+            return
+        }
+
+        let encoder: PropertyListEncoder = .init()
+
+        do {
+            let data = try encoder.encode(items)
+
+            try data.write(
+                to: dataURL,
+                options: Data.WritingOptions.atomic
+            )
+        } catch {
+            debugPrint("Error encoding item array: \(error.localizedDescription)")
+        }
+    }
+
+    private func loadChecklistItems() {
+        guard let dataURL else {
+            return
+        }
+
+        let decoder: PropertyListDecoder = .init()
+
+        do {
+            items = try decoder.decode(
+                [ChecklistItem].self,
+                from: Data(contentsOf: dataURL)
+            )
+        } catch {
+            debugPrint("Error decoding item array: \(error.localizedDescription)")
+        }
     }
 }
 
@@ -81,6 +127,8 @@ extension ChecklistViewController {
             let item = items[indexPath.row]
 
             item.isChecked.toggle()
+            saveChecklistItems()
+
             configureCheckmark(for: cell, with: item)
         }
 
@@ -93,6 +141,8 @@ extension ChecklistViewController {
         forRowAt indexPath: IndexPath
     ) {
         items.remove(at: indexPath.row)
+        saveChecklistItems()
+
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
@@ -130,6 +180,8 @@ extension ChecklistViewController: ChecklistItemDetailDelegate {
         didFinishCreation item: ChecklistItem
     ) {
         addNewItem(item)
+        saveChecklistItems()
+
         navigationController?.popViewController(animated: true)
     }
 
@@ -143,6 +195,8 @@ extension ChecklistViewController: ChecklistItemDetailDelegate {
             if let cell = tableView.cellForRow(at: indexPath) {
                 configureText(for: cell, with: item)
             }
+
+            saveChecklistItems()
         }
 
         navigationController?.popViewController(animated: true)
