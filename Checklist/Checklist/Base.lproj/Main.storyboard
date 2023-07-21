@@ -24,11 +24,56 @@
                     <navigationItem key="navigationItem" title="Checklists" id="UdJ-ys-47Q"/>
                     <connections>
                         <segue destination="D9S-7n-JNQ" kind="show" identifier="ShowChecklist" id="ZlS-Bg-TJI"/>
+                        <segue destination="RGr-id-3AE" kind="show" id="6hU-8a-e9M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZs-vM-h8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-679" y="-197"/>
+        </scene>
+        <!--Add Checklist-->
+        <scene sceneID="AA0-zY-iLT">
+            <objects>
+                <tableViewController id="RGr-id-3AE" customClass="AllListsDetailViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="LgD-Cb-Fze">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="kOW-e2-DWN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g5r-Vt-qnB">
+                                        <rect key="frame" x="0.0" y="18" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g5r-Vt-qnB" id="eVq-jX-8by">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="RGr-id-3AE" id="dl7-yb-qou"/>
+                            <outlet property="delegate" destination="RGr-id-3AE" id="un6-MA-7uZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Checklist" largeTitleDisplayMode="never" id="w5n-sz-rdK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pW6-Vf-N9h">
+                            <connections>
+                                <action selector="cancel" destination="RGr-id-3AE" id="QbA-r6-T7L"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="7Yx-yB-mSC">
+                            <connections>
+                                <action selector="done" destination="RGr-id-3AE" id="juJ-Ir-dAo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzp-gm-pAj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-679" y="537"/>
         </scene>
         <!--Checklists-->
         <scene sceneID="PoT-bQ-sNh">
