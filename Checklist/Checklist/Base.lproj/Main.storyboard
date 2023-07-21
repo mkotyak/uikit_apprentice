@@ -21,10 +21,16 @@
                             <outlet property="delegate" destination="YGo-fM-7m2" id="Aq9-ve-JgJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklists" id="UdJ-ys-47Q"/>
+                    <navigationItem key="navigationItem" title="Checklists" id="UdJ-ys-47Q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1yj-MW-zQy">
+                            <connections>
+                                <segue destination="RGr-id-3AE" kind="show" identifier="AddChecklist" id="LYO-Jm-Xud"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="D9S-7n-JNQ" kind="show" identifier="ShowChecklist" id="ZlS-Bg-TJI"/>
-                        <segue destination="RGr-id-3AE" kind="show" id="6hU-8a-e9M"/>
+                        <segue destination="RGr-id-3AE" kind="show" identifier="EditChecklist" id="6hU-8a-e9M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZs-vM-h8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -81,7 +87,7 @@
                                 <action selector="cancel" destination="RGr-id-3AE" id="QbA-r6-T7L"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="7Yx-yB-mSC">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="7Yx-yB-mSC">
                             <connections>
                                 <action selector="done" destination="RGr-id-3AE" id="juJ-Ir-dAo"/>
                             </connections>
@@ -240,6 +246,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tRG-xR-JzI"/>
+        <segue reference="6hU-8a-e9M"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
