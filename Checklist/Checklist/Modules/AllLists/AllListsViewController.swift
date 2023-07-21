@@ -17,25 +17,6 @@ class AllListsViewController: UITableViewController {
             forCellReuseIdentifier: Constants.cellIdentifier
         )
 
-//        lists = [
-//            .init(
-//                name: "Birthdays",
-//                items: [.init(text: "Item for Birthdays")]
-//            ),
-//            .init(
-//                name: "Groceries",
-//                items: [.init(text: "Item for Groceries")]
-//            ),
-//            .init(
-//                name: "Cool Apps",
-//                items: [.init(text: "Item for Cool Apps")]
-//            ),
-//            .init(
-//                name: "To Do",
-//                items: [.init(text: "Item for To Do")]
-//            )
-//        ]
-
         loadChecklists()
     }
 }
@@ -58,7 +39,7 @@ extension AllListsViewController {
         return documentsDirectoryURL.appendingPathComponent("Checklists.plist")
     }
 
-    private func saveChecklists() {
+    func saveChecklists() {
         guard let dataURL else {
             return
         }
