@@ -3,6 +3,7 @@ import UIKit
 class AllListsDetailViewController: UITableViewController {
     @IBOutlet var textField: UITextField!
     @IBOutlet var doneBarButton: UIBarButtonItem!
+    @IBOutlet var iconImage: UIImageView!
 
     weak var delegate: AllListsDetailViewControllerDelegate?
 
@@ -41,7 +42,7 @@ extension AllListsDetailViewController {
                 name: textField.text ?? "",
                 items: []
             )
-            
+
             delegate?.allListsDetailViewController(
                 self,
                 didFinishAdding: checklist

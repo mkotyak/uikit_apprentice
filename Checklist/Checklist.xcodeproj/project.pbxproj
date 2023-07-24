@@ -21,6 +21,8 @@
 		73FF16AA2A6AB24B00F2FB90 /* AllListsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16A92A6AB24B00F2FB90 /* AllListsDetailViewController.swift */; };
 		73FF16AD2A6AB2A600F2FB90 /* AllListsDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16AC2A6AB2A600F2FB90 /* AllListsDetailViewControllerDelegate.swift */; };
 		73FF16AF2A6AF19500F2FB90 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16AE2A6AF19500F2FB90 /* DataModel.swift */; };
+		73FF16B52A6EC3E400F2FB90 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16B42A6EC3E400F2FB90 /* IconPickerViewController.swift */; };
+		73FF16B72A6EC40500F2FB90 /* IconPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF16B62A6EC40500F2FB90 /* IconPickerViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		73FF16A92A6AB24B00F2FB90 /* AllListsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsDetailViewController.swift; sourceTree = "<group>"; };
 		73FF16AC2A6AB2A600F2FB90 /* AllListsDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		73FF16AE2A6AF19500F2FB90 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		73FF16B42A6EC3E400F2FB90 /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
+		73FF16B62A6EC40500F2FB90 /* IconPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				73FF16852A652FB300F2FB90 /* AppDelegate.swift */,
 				73FF16872A652FB300F2FB90 /* SceneDelegate.swift */,
 				73FF169B2A6557A100F2FB90 /* DataModels */,
+				73FF16B32A6EC3C900F2FB90 /* IconPicker */,
 				73FF169F2A683D2100F2FB90 /* Modules */,
 				73FF16B02A6E91B400F2FB90 /* Resources */,
 			);
@@ -145,6 +150,15 @@
 				73FF168B2A652FB300F2FB90 /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		73FF16B32A6EC3C900F2FB90 /* IconPicker */ = {
+			isa = PBXGroup;
+			children = (
+				73FF16B42A6EC3E400F2FB90 /* IconPickerViewController.swift */,
+				73FF16B62A6EC40500F2FB90 /* IconPickerViewControllerDelegate.swift */,
+			);
+			path = IconPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,10 +235,12 @@
 				73FF169D2A65978600F2FB90 /* ChecklistItemDetailViewController.swift in Sources */,
 				73FF16AD2A6AB2A600F2FB90 /* AllListsDetailViewControllerDelegate.swift in Sources */,
 				73FF16AF2A6AF19500F2FB90 /* DataModel.swift in Sources */,
+				73FF16B52A6EC3E400F2FB90 /* IconPickerViewController.swift in Sources */,
 				73FF16A62A6A9EC400F2FB90 /* AllListsViewController.swift in Sources */,
 				73FF16A32A683E7D00F2FB90 /* ChecklistItemDetailDelegate.swift in Sources */,
 				73FF168A2A652FB300F2FB90 /* ChecklistViewController.swift in Sources */,
 				73FF16A82A6AA9A500F2FB90 /* Checklist.swift in Sources */,
+				73FF16B72A6EC40500F2FB90 /* IconPickerViewControllerDelegate.swift in Sources */,
 				73FF16862A652FB300F2FB90 /* AppDelegate.swift in Sources */,
 				73FF16AA2A6AB24B00F2FB90 /* AllListsDetailViewController.swift in Sources */,
 				73FF16882A652FB300F2FB90 /* SceneDelegate.swift in Sources */,
