@@ -1,10 +1,15 @@
 import Foundation
 
 final class DataModel {
+    private enum Constants {
+        static var checklistIndexKey: String { "ChecklistIndex" }
+    }
+
     var lists: [Checklist] = []
 
     init() {
         loadChecklists()
+        registerDefaults()
     }
 
     private var documentsDirectoryURL: URL? {
@@ -20,6 +25,19 @@ final class DataModel {
         }
 
         return documentsDirectoryURL.appendingPathComponent("Checklists.plist")
+    }
+
+    var indexOfSelectedChecklist: Int {
+        get {
+            return UserDefaults.standard.integer(
+                forKey: Constants.checklistIndexKey)
+        }
+        set {
+            UserDefaults.standard.set(
+                newValue,
+                forKey: Constants.checklistIndexKey
+            )
+        }
     }
 
     func saveChecklists() {
@@ -56,5 +74,9 @@ final class DataModel {
         } catch {
             debugPrint("Error decoding list array: \(error.localizedDescription)")
         }
+    }
+
+    private func registerDefaults() {
+        UserDefaults.standard.register(defaults: [Constants.checklistIndexKey: -1])
     }
 }

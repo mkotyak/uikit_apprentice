@@ -5,8 +5,6 @@ class AllListsViewController: UITableViewController {
         static var cellIdentifier: String { "ChecklistCell" }
         static var segueShowChecklistIdentifier: String { "ShowChecklist" }
         static var segueAddChecklistIdentifier: String { "AddChecklist" }
-
-        static var checklistIndexKey: String { "ChecklistIndex" }
     }
 
     var dataModel: DataModel!
@@ -27,9 +25,11 @@ class AllListsViewController: UITableViewController {
 
         navigationController?.delegate = self
 
-        let index = UserDefaults.standard.integer(forKey: Constants.checklistIndexKey)
-
-        guard index != -1 else {
+        let index = dataModel.indexOfSelectedChecklist
+        guard
+            index >= 0,
+            index < dataModel.lists.count
+        else {
             return
         }
 
@@ -78,10 +78,7 @@ extension AllListsViewController {
             sender: dataModel.lists[indexPath.row]
         )
 
-        UserDefaults.standard.set(
-            indexPath.row,
-            forKey: Constants.checklistIndexKey
-        )
+        dataModel.indexOfSelectedChecklist = indexPath.row
     }
 
     override func tableView(
@@ -170,10 +167,7 @@ extension AllListsViewController: UINavigationControllerDelegate {
         animated: Bool
     ) {
         if viewController == self {
-            UserDefaults.standard.set(
-                -1,
-                forKey: Constants.checklistIndexKey
-            )
+            dataModel.indexOfSelectedChecklist = -1
         }
     }
 }
