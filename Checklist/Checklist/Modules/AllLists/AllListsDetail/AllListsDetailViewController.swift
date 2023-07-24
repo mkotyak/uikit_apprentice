@@ -46,10 +46,9 @@ extension AllListsDetailViewController {
         } else {
             let checklist = Checklist(
                 name: textField.text ?? "",
+                iconName: iconName,
                 items: []
             )
-
-            checklist.iconName = iconName
 
             delegate?.allListsDetailViewController(
                 self,
