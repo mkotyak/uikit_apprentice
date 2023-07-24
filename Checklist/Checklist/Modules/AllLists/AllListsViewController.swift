@@ -3,8 +3,12 @@ import UIKit
 class AllListsViewController: UITableViewController {
     private enum Constants {
         static var cellIdentifier: String { "ChecklistCell" }
+        static var segueShowChecklistIdentifier: String { "ShowChecklist" }
+        static var segueAddChecklistIdentifier: String { "AddChecklist" }
+
+        static var checklistIndexKey: String { "ChecklistIndex" }
     }
-    
+
     var dataModel: DataModel!
 
     override func viewDidLoad() {
@@ -53,8 +57,13 @@ extension AllListsViewController {
         didSelectRowAt indexPath: IndexPath
     ) {
         performSegue(
-            withIdentifier: "ShowChecklist",
+            withIdentifier: Constants.segueShowChecklistIdentifier,
             sender: dataModel.lists[indexPath.row]
+        )
+
+        UserDefaults.standard.set(
+            indexPath.row,
+            forKey: Constants.checklistIndexKey
         )
     }
 
@@ -89,10 +98,10 @@ extension AllListsViewController {
         for segue: UIStoryboardSegue,
         sender: Any?
     ) {
-        if segue.identifier == "ShowChecklist" {
+        if segue.identifier == Constants.segueShowChecklistIdentifier {
             let controller = segue.destination as! ChecklistViewController
             controller.checklist = sender as? Checklist
-        } else if segue.identifier == "AddChecklist" {
+        } else if segue.identifier == Constants.segueAddChecklistIdentifier {
             let controller = segue.destination as! AllListsDetailViewController
             controller.delegate = self
         }
@@ -132,5 +141,22 @@ extension AllListsViewController: AllListsDetailViewControllerDelegate {
         }
 
         navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - Navigation Controller Delegate
+
+extension AllListsViewController: UINavigationControllerDelegate {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
+        if viewController == self {
+            UserDefaults.standard.set(
+                -1,
+                forKey: Constants.checklistIndexKey
+            )
+        }
     }
 }
