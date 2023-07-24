@@ -13,11 +13,6 @@ class AllListsViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        tableView.register(
-            UITableViewCell.self,
-            forCellReuseIdentifier: Constants.cellIdentifier
-        )
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +33,11 @@ class AllListsViewController: UITableViewController {
             sender: dataModel.lists[index]
         )
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Table view data source
@@ -54,13 +54,28 @@ extension AllListsViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.cellIdentifier,
-            for: indexPath
-        )
+        let cell: UITableViewCell
+        let checklist: Checklist = dataModel.lists[indexPath.row]
 
-        cell.textLabel?.text = dataModel.lists[indexPath.row].name
+        if let tmp = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier) {
+            cell = tmp
+        } else {
+            cell = UITableViewCell(
+                style: .subtitle,
+                reuseIdentifier: Constants.cellIdentifier
+            )
+        }
+
+        cell.textLabel?.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
+
+        if checklist.items.isEmpty {
+            cell.detailTextLabel?.text = "(No Items)"
+        } else {
+            let remaningItemsCount: Int = checklist.uncheckedItems
+
+            cell.detailTextLabel?.text = remaningItemsCount == 0 ? "All Done" : "\(checklist.uncheckedItems) Remaining"
+        }
 
         return cell
     }
