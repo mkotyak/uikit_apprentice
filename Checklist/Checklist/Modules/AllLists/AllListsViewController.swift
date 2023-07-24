@@ -148,11 +148,9 @@ extension AllListsViewController: AllListsDetailViewControllerDelegate {
         _ controller: AllListsDetailViewController,
         didFinishAdding checklist: Checklist
     ) {
-        let newRowIndex = dataModel.lists.count
         dataModel.lists.append(checklist)
-
-        let indexPath: IndexPath = .init(row: newRowIndex, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        dataModel.sortChecklist()
+        tableView.reloadData()
 
         navigationController?.popViewController(animated: true)
     }
@@ -161,13 +159,8 @@ extension AllListsViewController: AllListsDetailViewControllerDelegate {
         _ controller: AllListsDetailViewController,
         didFinishEditing checklist: Checklist
     ) {
-        if let index = dataModel.lists.firstIndex(of: checklist) {
-            let indexPath = IndexPath(row: index, section: 0)
-
-            if let cell = tableView.cellForRow(at: indexPath) {
-                cell.textLabel?.text = checklist.name
-            }
-        }
+        dataModel.sortChecklist()
+        tableView.reloadData()
 
         navigationController?.popViewController(animated: true)
     }

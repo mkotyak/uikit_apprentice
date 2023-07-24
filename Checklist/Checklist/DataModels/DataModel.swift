@@ -61,6 +61,12 @@ final class DataModel {
         }
     }
 
+    func sortChecklist() {
+        lists.sort { list1, list2 in
+            list1.name.localizedStandardCompare(list2.name) == .orderedAscending
+        }
+    }
+
     private func loadChecklists() {
         guard let dataURL else {
             return
@@ -73,6 +79,8 @@ final class DataModel {
                 [Checklist].self,
                 from: Data(contentsOf: dataURL)
             )
+
+            sortChecklist()
         } catch {
             debugPrint("Error decoding list array: \(error.localizedDescription)")
         }
