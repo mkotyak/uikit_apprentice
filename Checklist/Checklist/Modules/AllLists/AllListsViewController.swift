@@ -21,6 +21,23 @@ class AllListsViewController: UITableViewController {
             forCellReuseIdentifier: Constants.cellIdentifier
         )
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        navigationController?.delegate = self
+
+        let index = UserDefaults.standard.integer(forKey: Constants.checklistIndexKey)
+
+        guard index != -1 else {
+            return
+        }
+
+        performSegue(
+            withIdentifier: Constants.segueShowChecklistIdentifier,
+            sender: dataModel.lists[index]
+        )
+    }
 }
 
 // MARK: - Table view data source
