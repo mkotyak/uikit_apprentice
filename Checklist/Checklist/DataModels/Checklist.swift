@@ -2,6 +2,7 @@ import Foundation
 
 class Checklist: Codable {
     var name: String
+    var iconName: String
     var items: [ChecklistItem]
 
     var uncheckedItems: Int {
@@ -10,9 +11,11 @@ class Checklist: Codable {
 
     init(
         name: String,
+        iconName: String = "No Icon",
         items: [ChecklistItem]
     ) {
         self.name = name
+        self.iconName = iconName
         self.items = items
     }
 }

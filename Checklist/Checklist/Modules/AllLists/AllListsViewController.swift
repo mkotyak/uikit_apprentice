@@ -68,6 +68,7 @@ extension AllListsViewController {
 
         cell.textLabel?.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
+        cell.imageView?.image = UIImage(named: checklist.iconName)
 
         if checklist.items.isEmpty {
             cell.detailTextLabel?.text = "(No Items)"
