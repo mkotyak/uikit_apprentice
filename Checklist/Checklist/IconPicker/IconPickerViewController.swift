@@ -42,4 +42,14 @@ extension IconPickerViewController {
 
         return cell
     }
+
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        delegate?.iconPicker(
+            self,
+            didPick: icons[indexPath.row]
+        )
+    }
 }
