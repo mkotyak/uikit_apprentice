@@ -3,6 +3,7 @@ import Foundation
 final class DataModel {
     private enum Constants {
         static var checklistIndexKey: String { "ChecklistIndex" }
+        static var firstAppSessionKey: String { "FirstAppSession" }
     }
 
     var lists: [Checklist] = []
@@ -10,6 +11,7 @@ final class DataModel {
     init() {
         loadChecklists()
         registerDefaults()
+        handleFirstAppSession()
     }
 
     private var documentsDirectoryURL: URL? {
@@ -77,6 +79,27 @@ final class DataModel {
     }
 
     private func registerDefaults() {
-        UserDefaults.standard.register(defaults: [Constants.checklistIndexKey: -1])
+        let defaults: [String: Any] = [
+            Constants.checklistIndexKey: -1,
+            Constants.firstAppSessionKey: true
+        ]
+
+        UserDefaults.standard.register(defaults: defaults)
+    }
+
+    private func handleFirstAppSession() {
+        let userDefaults = UserDefaults.standard
+        let isFirstAppSession: Bool = userDefaults.bool(forKey: Constants.firstAppSessionKey)
+
+        guard isFirstAppSession else {
+            return
+        }
+
+        lists.append(.init(
+            name: "List",
+            items: []
+        ))
+        indexOfSelectedChecklist = 0
+        userDefaults.set(false, forKey: Constants.firstAppSessionKey)
     }
 }
