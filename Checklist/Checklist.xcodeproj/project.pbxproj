@@ -72,26 +72,24 @@
 		73FF16842A652FB300F2FB90 /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
-				73FF169B2A6557A100F2FB90 /* Models */,
-				73FF169F2A683D2100F2FB90 /* Modules */,
+				73FF16932A652FB400F2FB90 /* Info.plist */,
 				73FF16852A652FB300F2FB90 /* AppDelegate.swift */,
 				73FF16872A652FB300F2FB90 /* SceneDelegate.swift */,
-				73FF168B2A652FB300F2FB90 /* Main.storyboard */,
-				73FF168E2A652FB400F2FB90 /* Assets.xcassets */,
-				73FF16902A652FB400F2FB90 /* LaunchScreen.storyboard */,
-				73FF16932A652FB400F2FB90 /* Info.plist */,
+				73FF169B2A6557A100F2FB90 /* DataModels */,
+				73FF169F2A683D2100F2FB90 /* Modules */,
+				73FF16B02A6E91B400F2FB90 /* Resources */,
 			);
 			path = Checklist;
 			sourceTree = "<group>";
 		};
-		73FF169B2A6557A100F2FB90 /* Models */ = {
+		73FF169B2A6557A100F2FB90 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
 				73FF16A72A6AA9A500F2FB90 /* Checklist.swift */,
 				73FF16992A65577600F2FB90 /* ChecklistItem.swift */,
 				73FF16AE2A6AF19500F2FB90 /* DataModel.swift */,
 			);
-			path = Models;
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		73FF169F2A683D2100F2FB90 /* Modules */ = {
@@ -137,6 +135,16 @@
 				73FF16A92A6AB24B00F2FB90 /* AllListsDetailViewController.swift */,
 			);
 			path = AllListsDetail;
+			sourceTree = "<group>";
+		};
+		73FF16B02A6E91B400F2FB90 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73FF168E2A652FB400F2FB90 /* Assets.xcassets */,
+				73FF16902A652FB400F2FB90 /* LaunchScreen.storyboard */,
+				73FF168B2A652FB300F2FB90 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
