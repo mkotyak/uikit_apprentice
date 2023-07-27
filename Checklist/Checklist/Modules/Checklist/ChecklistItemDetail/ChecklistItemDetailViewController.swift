@@ -18,6 +18,8 @@ class ChecklistItemDetailViewController: UITableViewController {
             title = "Edit Item"
             textField.text = itemToEdit.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = itemToEdit.shouldRemind
+            datePicker.date = itemToEdit.dueDate
         }
     }
 
@@ -37,6 +39,9 @@ extension ChecklistItemDetailViewController {
     @IBAction private func done() {
         if let itemToEdit {
             itemToEdit.text = textField.text ?? ""
+            itemToEdit.dueDate = datePicker.date
+            itemToEdit.shouldRemind = shouldRemindSwitch.isOn
+
             delegate?.checklistItemDetailViewController(
                 self,
                 didFinishEditing: itemToEdit
@@ -44,8 +49,8 @@ extension ChecklistItemDetailViewController {
         } else {
             let item: ChecklistItem = .init(
                 text: textField.text ?? "",
-                dueDate: .now + 10,
-                shouldRemind: true
+                dueDate: datePicker.date,
+                shouldRemind: shouldRemindSwitch.isOn
             )
 
             delegate?.checklistItemDetailViewController(
