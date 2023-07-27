@@ -21,6 +21,8 @@ class ChecklistItem: Codable {
     }
 
     func scheduleNotification() {
+        cancelNotification()
+
         guard shouldRemind,
               dueDate > Date.now
         else {
@@ -53,6 +55,11 @@ class ChecklistItem: Codable {
         center.add(request)
 
         debugPrint("Scheduled: \(request) for itemID: \(itemID)")
+    }
+
+    func cancelNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [itemID.uuidString])
     }
 }
 
