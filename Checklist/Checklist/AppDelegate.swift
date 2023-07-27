@@ -1,12 +1,40 @@
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        // Notification authorization
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
+            if granted {
+                debugPrint("We have permission")
+            } else {
+                debugPrint("Permissions denied")
+            }
+        }
 
+        let content = UNMutableNotificationContent()
+        content.title = "Hello!"
+        content.body = "I am a local notification"
+        content.sound = .default
 
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 10,
+            repeats: false
+        )
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let request = UNNotificationRequest(
+            identifier: "MyNotification",
+            content: content,
+            trigger: trigger
+        )
+
+        center.add(request)
+
         return true
     }
 
@@ -23,7 +51,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
-
