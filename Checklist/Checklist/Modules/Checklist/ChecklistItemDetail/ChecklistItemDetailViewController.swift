@@ -3,6 +3,8 @@ import UIKit
 class ChecklistItemDetailViewController: UITableViewController {
     @IBOutlet private var doneBarButton: UIBarButtonItem!
     @IBOutlet private var textField: UITextField!
+    @IBOutlet var shouldRemindSwitch: UISwitch!
+    @IBOutlet var datePicker: UIDatePicker!
 
     var itemToEdit: ChecklistItem?
     weak var delegate: ChecklistItemDetailDelegate?
