@@ -18,6 +18,12 @@ class Checklist: Codable {
         self.iconName = iconName
         self.items = items
     }
+
+    func sortItems() {
+        items.sort { item1, item2 in
+            item1.dueDate < item2.dueDate
+        }
+    }
 }
 
 extension Checklist: Equatable {

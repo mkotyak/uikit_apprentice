@@ -11,6 +11,13 @@ class ChecklistViewController: UITableViewController {
         title = checklist?.name ?? "Unknown"
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        checklist.sortItems()
+        tableView.reloadData()
+    }
+
     private func configureCheckmark(
         for cell: UITableViewCell,
         with item: ChecklistItem
