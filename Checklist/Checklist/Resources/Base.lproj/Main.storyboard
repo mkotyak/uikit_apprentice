@@ -285,7 +285,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lE7-49-1c0">
-                                                    <rect key="frame" x="308" y="6" width="51" height="31.5"/>
+                                                    <rect key="frame" x="310" y="6" width="51" height="31.5"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7F-Gb-u72">
                                                     <rect key="frame" x="16" y="11.5" width="86" height="21"/>
@@ -297,7 +297,7 @@
                                             <constraints>
                                                 <constraint firstItem="L7F-Gb-u72" firstAttribute="centerY" secondItem="lE7-49-1c0" secondAttribute="centerY" id="6Mg-p8-yBq"/>
                                                 <constraint firstItem="lE7-49-1c0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7F-Gb-u72" secondAttribute="trailing" constant="8" id="9yL-n6-gvh"/>
-                                                <constraint firstAttribute="trailing" secondItem="lE7-49-1c0" secondAttribute="trailing" constant="18" id="IiT-7u-OKK"/>
+                                                <constraint firstAttribute="trailing" secondItem="lE7-49-1c0" secondAttribute="trailing" constant="16" id="IiT-7u-OKK"/>
                                                 <constraint firstAttribute="bottom" secondItem="lE7-49-1c0" secondAttribute="bottom" constant="6" id="Ui6-97-Nv9"/>
                                                 <constraint firstItem="L7F-Gb-u72" firstAttribute="leading" secondItem="uds-f0-bFd" secondAttribute="leadingMargin" id="ZkD-ol-1w1"/>
                                                 <constraint firstItem="lE7-49-1c0" firstAttribute="top" secondItem="uds-f0-bFd" secondAttribute="top" constant="6" id="gaF-qR-wH3"/>
@@ -305,11 +305,33 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="fVt-WG-eeE">
-                                        <rect key="frame" x="0.0" y="142" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="142" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fVt-WG-eeE" id="U6h-v5-JdO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bEb-Xu-z5f">
+                                                    <rect key="frame" x="129" y="4" width="230" height="36.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="230" id="3g6-cA-uWH"/>
+                                                    </constraints>
+                                                </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jii-rb-dM4">
+                                                    <rect key="frame" x="18" y="12" width="71" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jii-rb-dM4" firstAttribute="leading" secondItem="U6h-v5-JdO" secondAttribute="leading" constant="18" id="KbG-3m-nmz"/>
+                                                <constraint firstAttribute="trailing" secondItem="bEb-Xu-z5f" secondAttribute="trailing" constant="16" id="LBM-17-8NL"/>
+                                                <constraint firstAttribute="bottom" secondItem="bEb-Xu-z5f" secondAttribute="bottom" constant="4" id="RhI-tz-MMh"/>
+                                                <constraint firstItem="bEb-Xu-z5f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jii-rb-dM4" secondAttribute="trailing" constant="8" id="WQO-3u-5e3"/>
+                                                <constraint firstItem="bEb-Xu-z5f" firstAttribute="top" secondItem="U6h-v5-JdO" secondAttribute="top" constant="4" id="tEf-2a-zmo"/>
+                                                <constraint firstItem="Jii-rb-dM4" firstAttribute="centerY" secondItem="bEb-Xu-z5f" secondAttribute="centerY" id="ver-xO-bbG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -334,6 +356,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="datePicker" destination="bEb-Xu-z5f" id="AHM-H8-mde"/>
                         <outlet property="doneBarButton" destination="ka3-3f-aoG" id="eaH-Q7-r2q"/>
                         <outlet property="shouldRemindSwitch" destination="lE7-49-1c0" id="QhN-Rk-hN7"/>
                         <outlet property="textField" destination="WZh-eo-4Am" id="USA-Um-0zT"/>
