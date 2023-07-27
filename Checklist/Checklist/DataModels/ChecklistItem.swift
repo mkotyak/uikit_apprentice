@@ -20,6 +20,10 @@ class ChecklistItem: Codable {
         self.shouldRemind = shouldRemind
     }
 
+    deinit {
+        cancelNotification()
+    }
+
     func scheduleNotification() {
         cancelNotification()
 
