@@ -1,15 +1,22 @@
 import Foundation
 
 class ChecklistItem: Codable {
+    var itemID: UUID = .init()
     var text: String
+    var dueDate: Date
     var isChecked: Bool = false
+    var shouldRemind: Bool
 
     init(
         text: String,
-        isChecked: Bool = false
+        dueDate: Date,
+        isChecked: Bool = false,
+        shouldRemind: Bool
     ) {
         self.text = text
+        self.dueDate = dueDate
         self.isChecked = isChecked
+        self.shouldRemind = shouldRemind
     }
 }
 

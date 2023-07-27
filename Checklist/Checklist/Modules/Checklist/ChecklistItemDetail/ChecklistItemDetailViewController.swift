@@ -40,7 +40,11 @@ extension ChecklistItemDetailViewController {
                 didFinishEditing: itemToEdit
             )
         } else {
-            let item: ChecklistItem = .init(text: textField.text ?? "")
+            let item: ChecklistItem = .init(
+                text: textField.text ?? "",
+                dueDate: .now + 10,
+                shouldRemind: true
+            )
 
             delegate?.checklistItemDetailViewController(
                 self,
