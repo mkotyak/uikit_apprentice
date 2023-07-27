@@ -1,4 +1,5 @@
 import Foundation
+import UserNotifications
 
 class ChecklistItem: Codable {
     var itemID: UUID = .init()
@@ -17,6 +18,41 @@ class ChecklistItem: Codable {
         self.dueDate = dueDate
         self.isChecked = isChecked
         self.shouldRemind = shouldRemind
+    }
+
+    func scheduleNotification() {
+        guard shouldRemind,
+              dueDate > Date.now
+        else {
+            return
+        }
+
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder:"
+        content.body = text
+        content.sound = .default
+
+        let calendar: Calendar = .init(identifier: .gregorian)
+        let components = calendar.dateComponents(
+            [.year, .month, .day, .hour, .minute],
+            from: dueDate
+        )
+
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: components,
+            repeats: false
+        )
+
+        let request = UNNotificationRequest(
+            identifier: itemID.uuidString,
+            content: content,
+            trigger: trigger
+        )
+
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
+
+        debugPrint("Scheduled: \(request) for itemID: \(itemID)")
     }
 }
 

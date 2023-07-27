@@ -42,6 +42,8 @@ extension ChecklistItemDetailViewController {
             itemToEdit.dueDate = datePicker.date
             itemToEdit.shouldRemind = shouldRemindSwitch.isOn
 
+            itemToEdit.scheduleNotification()
+
             delegate?.checklistItemDetailViewController(
                 self,
                 didFinishEditing: itemToEdit
@@ -53,10 +55,24 @@ extension ChecklistItemDetailViewController {
                 shouldRemind: shouldRemindSwitch.isOn
             )
 
+            item.scheduleNotification()
+
             delegate?.checklistItemDetailViewController(
                 self,
                 didFinishCreation: item
             )
+        }
+    }
+
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+        textField.resignFirstResponder()
+
+        guard switchControl.isOn else {
+            return
+        }
+
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { _, _ in
         }
     }
 }
