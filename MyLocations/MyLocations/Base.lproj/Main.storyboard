@@ -64,6 +64,9 @@
                                 <rect key="frame" x="16" y="567" width="343" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Get My Location"/>
+                                <connections>
+                                    <action selector="getLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="3QA-2b-uuH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -96,6 +99,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" id="zOL-gM-Bts"/>
                     <connections>
+                        <outlet property="addressLabel" destination="m2f-Kr-gHh" id="yz1-ub-L1X"/>
                         <outlet property="getButton" destination="v7S-bf-5hq" id="47c-Aq-KfV"/>
                         <outlet property="latitudeLabel" destination="RMS-93-xoR" id="DIz-Pl-i0S"/>
                         <outlet property="longitudeLabel" destination="hnI-Hw-CR5" id="Rm0-CN-bsM"/>
@@ -113,6 +117,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zMJ-rb-2I2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A0F-Tu-DSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
