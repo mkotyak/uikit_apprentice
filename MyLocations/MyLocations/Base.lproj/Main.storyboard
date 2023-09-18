@@ -46,6 +46,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Address goes here)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2f-Kr-gHh">
+                                <rect key="frame" x="16" y="171" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WJH-ND-g6E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,8 +62,11 @@
                             <constraint firstItem="RMS-93-xoR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7rv-b6-DH6" secondAttribute="trailing" constant="8" id="5Cp-i6-QaW"/>
                             <constraint firstItem="C0h-q6-IeO" firstAttribute="top" secondItem="7rv-b6-DH6" secondAttribute="bottom" constant="24" id="A0W-FV-3hi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBG-qR-Zhy" secondAttribute="trailing" constant="16" id="MnS-hZ-wdo"/>
+                            <constraint firstItem="m2f-Kr-gHh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QyC-VL-xXn"/>
+                            <constraint firstItem="m2f-Kr-gHh" firstAttribute="top" secondItem="C0h-q6-IeO" secondAttribute="bottom" constant="24" id="V4k-Ap-SOk"/>
                             <constraint firstItem="kBG-qR-Zhy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WG1-w0-afG"/>
                             <constraint firstItem="7rv-b6-DH6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cfp-8X-vAl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m2f-Kr-gHh" secondAttribute="trailing" constant="16" id="fdD-jc-gZ1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RMS-93-xoR" secondAttribute="trailing" constant="16" id="g26-Kq-RbA"/>
                             <constraint firstItem="hnI-Hw-CR5" firstAttribute="top" secondItem="RMS-93-xoR" secondAttribute="bottom" constant="24" id="hx4-9N-NGh"/>
                             <constraint firstItem="C0h-q6-IeO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="i7G-Pr-Hrm"/>
@@ -63,6 +75,7 @@
                             <constraint firstItem="hnI-Hw-CR5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C0h-q6-IeO" secondAttribute="trailing" constant="8" id="oVH-FB-stZ"/>
                             <constraint firstItem="7rv-b6-DH6" firstAttribute="top" secondItem="kBG-qR-Zhy" secondAttribute="bottom" constant="24" id="qhT-uh-QGm"/>
                             <constraint firstItem="kBG-qR-Zhy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rUc-5C-85a"/>
+                            <constraint firstItem="m2f-Kr-gHh" firstAttribute="top" secondItem="hnI-Hw-CR5" secondAttribute="bottom" constant="24" id="yUP-oF-8QZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" id="zOL-gM-Bts"/>
