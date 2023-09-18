@@ -55,12 +55,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkS-CR-ar7">
+                                <rect key="frame" x="16" y="245" width="343" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Tag Location"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-bf-5hq">
+                                <rect key="frame" x="16" y="567" width="343" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get My Location"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QkS-CR-ar7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Ew-ta-3Vj"/>
                             <constraint firstItem="RMS-93-xoR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7rv-b6-DH6" secondAttribute="trailing" constant="8" id="5Cp-i6-QaW"/>
+                            <constraint firstItem="v7S-bf-5hq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6a2-lx-loW"/>
                             <constraint firstItem="C0h-q6-IeO" firstAttribute="top" secondItem="7rv-b6-DH6" secondAttribute="bottom" constant="24" id="A0W-FV-3hi"/>
+                            <constraint firstItem="QkS-CR-ar7" firstAttribute="top" secondItem="m2f-Kr-gHh" secondAttribute="bottom" constant="24" id="KBX-2A-hHc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kBG-qR-Zhy" secondAttribute="trailing" constant="16" id="MnS-hZ-wdo"/>
                             <constraint firstItem="m2f-Kr-gHh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QyC-VL-xXn"/>
                             <constraint firstItem="m2f-Kr-gHh" firstAttribute="top" secondItem="C0h-q6-IeO" secondAttribute="bottom" constant="24" id="V4k-Ap-SOk"/>
@@ -68,6 +81,7 @@
                             <constraint firstItem="7rv-b6-DH6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cfp-8X-vAl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m2f-Kr-gHh" secondAttribute="trailing" constant="16" id="fdD-jc-gZ1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RMS-93-xoR" secondAttribute="trailing" constant="16" id="g26-Kq-RbA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v7S-bf-5hq" secondAttribute="bottom" constant="16" id="gco-bw-Asw"/>
                             <constraint firstItem="hnI-Hw-CR5" firstAttribute="top" secondItem="RMS-93-xoR" secondAttribute="bottom" constant="24" id="hx4-9N-NGh"/>
                             <constraint firstItem="C0h-q6-IeO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="i7G-Pr-Hrm"/>
                             <constraint firstItem="RMS-93-xoR" firstAttribute="top" secondItem="kBG-qR-Zhy" secondAttribute="bottom" constant="24" id="jks-lT-snr"/>
@@ -75,14 +89,18 @@
                             <constraint firstItem="hnI-Hw-CR5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C0h-q6-IeO" secondAttribute="trailing" constant="8" id="oVH-FB-stZ"/>
                             <constraint firstItem="7rv-b6-DH6" firstAttribute="top" secondItem="kBG-qR-Zhy" secondAttribute="bottom" constant="24" id="qhT-uh-QGm"/>
                             <constraint firstItem="kBG-qR-Zhy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rUc-5C-85a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QkS-CR-ar7" secondAttribute="trailing" constant="16" id="u6F-wq-4Cy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v7S-bf-5hq" secondAttribute="trailing" constant="16" id="uO0-73-JTm"/>
                             <constraint firstItem="m2f-Kr-gHh" firstAttribute="top" secondItem="hnI-Hw-CR5" secondAttribute="bottom" constant="24" id="yUP-oF-8QZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" id="zOL-gM-Bts"/>
                     <connections>
+                        <outlet property="getButton" destination="v7S-bf-5hq" id="47c-Aq-KfV"/>
                         <outlet property="latitudeLabel" destination="RMS-93-xoR" id="DIz-Pl-i0S"/>
                         <outlet property="longitudeLabel" destination="hnI-Hw-CR5" id="Rm0-CN-bsM"/>
                         <outlet property="messageLabel" destination="kBG-qR-Zhy" id="vQO-TE-f8Q"/>
+                        <outlet property="tagButton" destination="QkS-CR-ar7" id="rWJ-O5-Cab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
