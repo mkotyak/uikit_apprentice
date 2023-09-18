@@ -51,7 +51,7 @@ extension CurrentLocationViewController {
             return
         }
 
-        guard authStatus != .denied || authStatus != .restricted else {
+        guard authStatus == .authorizedAlways || authStatus == .authorizedAlways else {
             showLocationServicesDeniedAlert()
             return
         }
@@ -69,7 +69,7 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
         _ manager: CLLocationManager,
         didFailWithError error: Error
     ) {
-        showLocationServicesDeniedAlert()
+        debugPrint("Retriving location is failed: ", error.localizedDescription)
     }
 
     func locationManager(
