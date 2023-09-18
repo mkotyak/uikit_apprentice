@@ -13,6 +13,9 @@ class CurrentLocationViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var location: CLLocation?
 
+    private var isUpdatingLocation: Bool = false
+    private var lastLocationError: Error?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
@@ -38,6 +41,8 @@ class CurrentLocationViewController: UIViewController {
             messageLabel.text = "Tap 'Get My Location' to Start"
         }
     }
+
+    private func stopLocationManager() {}
 }
 
 // MARK: - Actions
@@ -69,7 +74,15 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
         _ manager: CLLocationManager,
         didFailWithError error: Error
     ) {
-        debugPrint("Retriving location is failed: ", error.localizedDescription)
+        debugPrint("didFailWithError \(error.localizedDescription)")
+
+        if (error as NSError).code == CLError.locationUnknown.rawValue {
+            return
+        }
+
+        lastLocationError = error
+        stopLocationManager()
+        updateLabels()
     }
 
     func locationManager(
