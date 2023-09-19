@@ -38,11 +38,41 @@ class CurrentLocationViewController: UIViewController {
             longitudeLabel.text = ""
             addressLabel.text = ""
             tagButton.isHidden = true
-            messageLabel.text = "Tap 'Get My Location' to Start"
+
+            let statusMessage: String
+            if let error = lastLocationError as NSError? {
+                if error.domain == kCLErrorDomain && error.code == CLError.denied.rawValue {
+                    statusMessage = "Location Services Disabled"
+                } else {
+                    statusMessage = "Error Getting Location"
+                }
+            } else if !CLLocationManager.locationServicesEnabled() {
+                statusMessage = "Location Services Disabled"
+            } else if isUpdatingLocation {
+                statusMessage = "Searching..."
+            } else {
+                statusMessage = "Tap 'Get My Location' to Start"
+            }
+            messageLabel.text = statusMessage
         }
     }
 
-    private func stopLocationManager() {}
+    private func startLocationManager() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            isUpdatingLocation = true
+        }
+    }
+
+    private func stopLocationManager() {
+        if isUpdatingLocation {
+            locationManager.stopUpdatingLocation()
+            locationManager.delegate = nil
+            isUpdatingLocation = false
+        }
+    }
 }
 
 // MARK: - Actions
@@ -51,19 +81,25 @@ extension CurrentLocationViewController {
     @IBAction func getLocation() {
         let authStatus = locationManager.authorizationStatus
 
-        guard authStatus != .notDetermined else {
+        if authStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
             return
         }
 
-        guard authStatus == .authorizedAlways || authStatus == .authorizedAlways else {
+        if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             return
         }
 
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
+        if isUpdatingLocation {
+            stopLocationManager()
+        } else {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
+
+        updateLabels()
     }
 }
 
@@ -90,6 +126,8 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
         didUpdateLocations locations: [CLLocation]
     ) {
         location = locations.last
+        lastLocationError = nil
+
         updateLabels()
     }
 }
@@ -106,11 +144,15 @@ extension CurrentLocationViewController {
 
         let okAction = UIAlertAction(
             title: "OK",
-            style: .default
+            style: .default,
+            handler: nil
         )
-
         alert.addAction(okAction)
 
-        present(alert, animated: true)
+        present(
+            alert,
+            animated: true,
+            completion: nil
+        )
     }
 }
