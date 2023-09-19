@@ -20,6 +20,8 @@ class CurrentLocationViewController: UIViewController {
     private var isPerformingReverseGeocoding = false
     private var lastGeocodingError: Error?
 
+    private var retrieveLocationTimeoutTimer: Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
@@ -90,6 +92,27 @@ class CurrentLocationViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         isUpdatingLocation = true
+
+        retrieveLocationTimeoutTimer = Timer.scheduledTimer(
+            withTimeInterval: 60,
+            repeats: false,
+            block: { [weak self] _ in
+                guard let self else {
+                    return
+                }
+
+                debugPrint("*** Time out")
+                if location == nil {
+                    stopLocationManager()
+                    lastLocationError = NSError(
+                        domain: "MyLocationsErrorDomain",
+                        code: 1,
+                        userInfo: nil
+                    )
+                    updateLabels()
+                }
+            }
+        )
     }
 
     private func stopLocationManager() {
@@ -100,6 +123,8 @@ class CurrentLocationViewController: UIViewController {
         locationManager.stopUpdatingLocation()
         locationManager.delegate = nil
         isUpdatingLocation = false
+
+        retrieveLocationTimeoutTimer?.invalidate()
     }
 
     private func string(from placemark: CLPlacemark) -> String {
@@ -127,6 +152,8 @@ class CurrentLocationViewController: UIViewController {
         // 5
         return line1 + "\n" + line2
     }
+
+    @objc func didTimeOut() {}
 }
 
 // MARK: - Actions
