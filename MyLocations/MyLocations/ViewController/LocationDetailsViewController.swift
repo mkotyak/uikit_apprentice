@@ -1,6 +1,6 @@
 import UIKit
 
-class LocationDetailsViewController: UIViewController {
+class LocationDetailsViewController: UITableViewController {
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
