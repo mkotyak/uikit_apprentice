@@ -58,20 +58,24 @@ class CurrentLocationViewController: UIViewController {
     }
 
     private func startLocationManager() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-            isUpdatingLocation = true
+        guard CLLocationManager.locationServicesEnabled() else {
+            return
         }
+
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
+        isUpdatingLocation = true
     }
 
     private func stopLocationManager() {
-        if isUpdatingLocation {
-            locationManager.stopUpdatingLocation()
-            locationManager.delegate = nil
-            isUpdatingLocation = false
+        guard isUpdatingLocation else {
+            return
         }
+
+        locationManager.stopUpdatingLocation()
+        locationManager.delegate = nil
+        isUpdatingLocation = false
     }
 }
 
@@ -125,10 +129,29 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
         _ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
     ) {
-        location = locations.last
-        lastLocationError = nil
+        guard let newLocation = locations.last else {
+            return
+        }
 
-        updateLabels()
+        guard newLocation.timestamp.timeIntervalSinceNow >= -5 else {
+            return
+        }
+
+        guard newLocation.horizontalAccuracy >= 0 else {
+            return
+        }
+
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+            lastLocationError = nil
+            location = newLocation
+
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
+                print("*** We're done!")
+                stopLocationManager()
+            }
+
+            updateLabels()
+        }
     }
 }
 
