@@ -359,6 +359,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="EoN-f1-G6A" id="5UK-Jo-hCt"/>
+                        <outlet property="categoryLabel" destination="vtj-Cv-FXA" id="O26-Ez-sk7"/>
+                        <outlet property="dateLabel" destination="PpL-2W-VZj" id="1J3-HQ-XC7"/>
+                        <outlet property="descriptionTextView" destination="iTs-sR-mhu" id="TwW-n1-gn4"/>
+                        <outlet property="latitudeLabel" destination="Xgu-RL-coO" id="Cl4-pU-9Z8"/>
+                        <outlet property="longitudeLabel" destination="fMv-Qi-b6O" id="xaw-Vv-Lo2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wwg-yC-wHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
