@@ -55,6 +55,16 @@ class CurrentLocationViewController: UIViewController {
             }
             messageLabel.text = statusMessage
         }
+        
+        configureGetButton()
+    }
+
+    private func configureGetButton() {
+        if isUpdatingLocation {
+            getButton.setTitle("Stop", for: .normal)
+        } else {
+            getButton.setTitle("Get My Location", for: .normal)
+        }
     }
 
     private func startLocationManager() {
