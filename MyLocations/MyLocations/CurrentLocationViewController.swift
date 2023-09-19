@@ -62,7 +62,7 @@ class CurrentLocationViewController: UIViewController {
                 } else {
                     statusMessage = "Error Getting Location"
                 }
-            } else if !CLLocationManager.locationServicesEnabled() {
+            } else if locationManager.authorizationStatus == .denied {
                 statusMessage = "Location Services Disabled"
             } else if isUpdatingLocation {
                 statusMessage = "Searching..."
@@ -84,7 +84,7 @@ class CurrentLocationViewController: UIViewController {
     }
 
     private func startLocationManager() {
-        guard CLLocationManager.locationServicesEnabled() else {
+        guard locationManager.authorizationStatus != .denied else {
             return
         }
 
@@ -152,8 +152,6 @@ class CurrentLocationViewController: UIViewController {
         // 5
         return line1 + "\n" + line2
     }
-
-    @objc func didTimeOut() {}
 }
 
 // MARK: - Actions
@@ -169,6 +167,7 @@ extension CurrentLocationViewController {
 
         if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
+            updateLabels()
             return
         }
 
