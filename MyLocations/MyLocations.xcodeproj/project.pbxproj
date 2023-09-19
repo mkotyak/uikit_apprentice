@@ -14,6 +14,7 @@
 		73AF7EDF2AB889C300E83B6F /* MyLocations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7EDD2AB889C300E83B6F /* MyLocations.xcdatamodeld */; };
 		73AF7EE12AB889C400E83B6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73AF7EE02AB889C400E83B6F /* Assets.xcassets */; };
 		73AF7EE42AB889C400E83B6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73AF7EE22AB889C400E83B6F /* LaunchScreen.storyboard */; };
+		73AF7EEC2AB9DC0700E83B6F /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7EEB2AB9DC0700E83B6F /* LocationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		73AF7EE02AB889C400E83B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73AF7EE32AB889C400E83B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73AF7EE52AB889C400E83B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73AF7EEB2AB9DC0700E83B6F /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,25 @@
 		73AF7ED32AB889C300E83B6F /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				73AF7EE52AB889C400E83B6F /* Info.plist */,
 				73AF7ED42AB889C300E83B6F /* AppDelegate.swift */,
 				73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */,
-				73AF7ED82AB889C300E83B6F /* CurrentLocationViewController.swift */,
-				73AF7EDA2AB889C300E83B6F /* Main.storyboard */,
 				73AF7EE02AB889C400E83B6F /* Assets.xcassets */,
 				73AF7EE22AB889C400E83B6F /* LaunchScreen.storyboard */,
-				73AF7EE52AB889C400E83B6F /* Info.plist */,
+				73AF7EDA2AB889C300E83B6F /* Main.storyboard */,
 				73AF7EDD2AB889C300E83B6F /* MyLocations.xcdatamodeld */,
+				73AF7EED2AB9DC1C00E83B6F /* ViewController */,
 			);
 			path = MyLocations;
+			sourceTree = "<group>";
+		};
+		73AF7EED2AB9DC1C00E83B6F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73AF7ED82AB889C300E83B6F /* CurrentLocationViewController.swift */,
+				73AF7EEB2AB9DC0700E83B6F /* LocationDetailsViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 				73AF7ED52AB889C300E83B6F /* AppDelegate.swift in Sources */,
 				73AF7EDF2AB889C300E83B6F /* MyLocations.xcdatamodeld in Sources */,
 				73AF7ED72AB889C300E83B6F /* SceneDelegate.swift in Sources */,
+				73AF7EEC2AB9DC0700E83B6F /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
