@@ -152,7 +152,7 @@ extension CurrentLocationViewController {
             lastLocationError = nil
             placemark = nil
             lastGeocodingError = nil
-            
+
             startLocationManager()
         }
 
@@ -186,12 +186,19 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             return
         }
 
-        guard newLocation.timestamp.timeIntervalSinceNow >= -5 else {
+        print("didUpdateLocations \(newLocation)")
+
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
             return
         }
 
-        guard newLocation.horizontalAccuracy >= 0 else {
+        if newLocation.horizontalAccuracy < 0 {
             return
+        }
+
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = location {
+            distance = newLocation.distance(from: location)
         }
 
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
@@ -201,29 +208,37 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 print("*** We're done!")
                 stopLocationManager()
+
+                if distance > 0 {
+                    isPerformingReverseGeocoding = false
+                }
             }
 
-            updateLabels()
-
             if !isPerformingReverseGeocoding {
-                debugPrint("*** Going to geocode")
+                print("*** Going to geocode")
 
                 isPerformingReverseGeocoding = true
 
-                geocoder.reverseGeocodeLocation(newLocation) { [weak self] placemarks, error in
-                    guard let self else {
-                        return
-                    }
-
-                    lastGeocodingError = error
-
+                geocoder.reverseGeocodeLocation(newLocation) { placemarks, error in
+                    self.lastGeocodingError = error
                     if error == nil, let places = placemarks, !places.isEmpty {
-                        self.placemark = places.last
+                        self.placemark = places.last!
+                    } else {
+                        self.placemark = nil
                     }
 
                     self.isPerformingReverseGeocoding = false
                     self.updateLabels()
                 }
+            }
+
+            updateLabels()
+        } else if distance < 1 {
+            let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+            if timeInterval > 10 {
+                print("*** Force done!")
+                stopLocationManager()
+                updateLabels()
             }
         }
     }
