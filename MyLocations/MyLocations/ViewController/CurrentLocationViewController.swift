@@ -304,3 +304,18 @@ extension CurrentLocationViewController {
         )
     }
 }
+
+// MARK: - Navigation
+
+extension CurrentLocationViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationDetailsViewController
+            controller.coordinate = location?.coordinate ?? .init(latitude: 0, longitude: 0)
+            controller.placemark = placemark
+        }
+    }
+}
