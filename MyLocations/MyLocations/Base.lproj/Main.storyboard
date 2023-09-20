@@ -300,7 +300,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-f1-G6A">
-                                                    <rect key="frame" x="342" y="14.5" width="33" height="14.5"/>
+                                                    <rect key="frame" x="326" y="14.5" width="33" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -308,10 +308,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tLt-AF-AOd" firstAttribute="centerY" secondItem="f6x-yE-h1z" secondAttribute="centerY" id="1Fz-bB-nCl"/>
-                                                <constraint firstAttribute="trailing" secondItem="EoN-f1-G6A" secondAttribute="trailing" id="Hax-tf-FpS"/>
                                                 <constraint firstItem="tLt-AF-AOd" firstAttribute="leading" secondItem="f6x-yE-h1z" secondAttribute="leadingMargin" id="IK3-j6-p9U"/>
                                                 <constraint firstItem="EoN-f1-G6A" firstAttribute="centerY" secondItem="f6x-yE-h1z" secondAttribute="centerY" id="NRF-Xx-Vfn"/>
                                                 <constraint firstItem="EoN-f1-G6A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tLt-AF-AOd" secondAttribute="trailing" constant="8" id="env-fY-TeE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EoN-f1-G6A" secondAttribute="trailing" id="gVL-Fs-K75"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
