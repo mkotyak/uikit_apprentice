@@ -1,9 +1,9 @@
 import UIKit
 
 class CategoryPickerViewController: UITableViewController {
-    private var selectedCategoryName = ""
     private var selectedIndexPath: IndexPath = .init()
 
+    var selectedCategoryName = ""
     let categories: [String] = [
         "No Category",
         "Apple Store",

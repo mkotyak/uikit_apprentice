@@ -15,6 +15,8 @@ class LocationDetailsViewController: UITableViewController {
     )
     var placemark: CLPlacemark?
 
+    var categoryName = "No Category"
+
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -27,7 +29,7 @@ class LocationDetailsViewController: UITableViewController {
         super.viewDidLoad()
 
         descriptionTextView.text = ""
-        categoryLabel.text = ""
+        categoryLabel.text = categoryName
 
         latitudeLabel.text = String(
             format: "%.8f",
@@ -88,5 +90,16 @@ extension LocationDetailsViewController {
 
     func format(date: Date) -> String {
         dateFormatter.string(from: date)
+    }
+}
+
+// MARK: Navigation
+
+extension LocationDetailsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickCategory" {
+            let controller = segue.destination as! CategoryPickerViewController
+            controller.selectedCategoryName = categoryName
+        }
     }
 }
