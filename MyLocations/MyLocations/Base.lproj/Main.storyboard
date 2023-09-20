@@ -400,6 +400,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Hpu-YM-2Fe" kind="unwind" identifier="PickedCategory" unwindAction="categoryPickerDidPickCategory:" id="yfP-Ej-u9o"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -410,6 +413,7 @@
                     <navigationItem key="navigationItem" id="j7I-8k-w9H"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waM-Ye-d2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Hpu-YM-2Fe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3742" y="3"/>
         </scene>

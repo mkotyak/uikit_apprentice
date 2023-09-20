@@ -60,6 +60,12 @@ extension LocationDetailsViewController {
     @IBAction func cancel() {
         navigationController?.popViewController(animated: true)
     }
+
+    @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
+        let controller = segue.source as! CategoryPickerViewController
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
+    }
 }
 
 // MARK: - Helper Methods
