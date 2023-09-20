@@ -77,13 +77,17 @@ class LocationDetailsViewController: UITableViewController {
 
 extension LocationDetailsViewController {
     @IBAction func done() {
-//        navigationController?.popViewController(animated: true)
         guard let mainView = navigationController?.parent?.view else {
             return
         }
 
         let hudView = HudView.hud(inView: mainView, animated: true)
         hudView.text = "Tagged"
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+            hudView.hide()
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 
     @IBAction func cancel() {

@@ -88,4 +88,9 @@ extension HudView {
             )
         }
     }
+
+    func hide() {
+        superview?.isUserInteractionEnabled = true
+        removeFromSuperview()
+    }
 }
