@@ -1,7 +1,10 @@
+import CoreData
 import CoreLocation
 import UIKit
 
 class LocationDetailsViewController: UITableViewController {
+    var managedObjectContext: NSManagedObjectContext!
+
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
