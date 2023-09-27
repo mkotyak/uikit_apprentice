@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		731F27D82AC4569B0045ACC0 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F27D62AC4569B0045ACC0 /* Location+CoreDataClass.swift */; };
 		731F27D92AC4569B0045ACC0 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F27D72AC4569B0045ACC0 /* Location+CoreDataProperties.swift */; };
+		731F27DB2AC46D4E0045ACC0 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F27DA2AC46D4E0045ACC0 /* GlobalConstants.swift */; };
 		73AF7ED52AB889C300E83B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED42AB889C300E83B6F /* AppDelegate.swift */; };
 		73AF7ED72AB889C300E83B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */; };
 		73AF7ED92AB889C300E83B6F /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED82AB889C300E83B6F /* CurrentLocationViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		731F27D62AC4569B0045ACC0 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		731F27D72AC4569B0045ACC0 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		731F27DA2AC46D4E0045ACC0 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		73AF7ED12AB889C300E83B6F /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AF7ED42AB889C300E83B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		73AF7ED32AB889C300E83B6F /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				731F27DA2AC46D4E0045ACC0 /* GlobalConstants.swift */,
 				73AF7ED42AB889C300E83B6F /* AppDelegate.swift */,
 				73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */,
 				73AF7EE02AB889C400E83B6F /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 			files = (
 				73C508DA2ABAE825005C9561 /* CategoryPickerViewController.swift in Sources */,
 				73AF7ED92AB889C300E83B6F /* CurrentLocationViewController.swift in Sources */,
+				731F27DB2AC46D4E0045ACC0 /* GlobalConstants.swift in Sources */,
 				73AF7ED52AB889C300E83B6F /* AppDelegate.swift in Sources */,
 				73AF7EDF2AB889C300E83B6F /* MyLocations.xcdatamodeld in Sources */,
 				731F27D82AC4569B0045ACC0 /* Location+CoreDataClass.swift in Sources */,
