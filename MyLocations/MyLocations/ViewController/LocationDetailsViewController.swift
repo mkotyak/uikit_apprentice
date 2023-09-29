@@ -89,7 +89,7 @@ extension LocationDetailsViewController {
         hudView.text = "Tagged"
 
         let location = Location(context: managedObjectContext)
-        location.locationDescription = description
+        location.locationDescription = descriptionTextView.text
         location.category = categoryName
         location.latitude = coordinate.latitude
         location.longitude = coordinate.longitude

@@ -12,11 +12,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabController = window?.rootViewController as! UITabBarController
 
         if let tabViewControllers = tabController.viewControllers {
-            let navController = tabViewControllers.first as! UINavigationController
-            let controller = navController.viewControllers.first as! CurrentLocationViewController
-            controller.managedObjectContext = managedObjectContext
+            // First tab
+            var navController = tabViewControllers[0] as! UINavigationController
+            let currentLocationViewController = navController.viewControllers.first as! CurrentLocationViewController
+            currentLocationViewController.managedObjectContext = managedObjectContext
+
+            // Second tab
+            navController = tabViewControllers[1] as! UINavigationController
+            let locationsViewController = navController.viewControllers.first as! LocationsViewController
+            locationsViewController.managedObjectContext = managedObjectContext
         }
-        
+
         listenForFatalCoreDataNotifications()
     }
 
