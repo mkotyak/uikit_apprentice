@@ -3,6 +3,7 @@ import CoreLocation
 import UIKit
 
 class LocationDetailsViewController: UITableViewController {
+    private let date = Date()
     var managedObjectContext: NSManagedObjectContext!
 
     @IBOutlet var descriptionTextView: UITextView!
@@ -16,8 +17,8 @@ class LocationDetailsViewController: UITableViewController {
         latitude: 0,
         longitude: 0
     )
-    var placemark: CLPlacemark?
 
+    var placemark: CLPlacemark?
     var categoryName = "No Category"
 
     lazy var dateFormatter: DateFormatter = {
@@ -49,7 +50,7 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
 
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
 
         // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(
@@ -87,9 +88,23 @@ extension LocationDetailsViewController {
         let hudView = HudView.hud(inView: mainView, animated: true)
         hudView.text = "Tagged"
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
-            hudView.hide()
-            self?.navigationController?.popViewController(animated: true)
+        let location = Location(context: managedObjectContext)
+        location.locationDescription = description
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+
+        do {
+            try managedObjectContext.save()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+                hudView.hide()
+                self?.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+            fatalError("Error: \(error)")
         }
     }
 
