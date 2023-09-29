@@ -99,12 +99,12 @@ extension LocationDetailsViewController {
         do {
             try managedObjectContext.save()
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+            afterDelay(0.6) { [weak self] in
                 hudView.hide()
                 self?.navigationController?.popViewController(animated: true)
             }
         } catch {
-            fatalError("Error: \(error)")
+            fatalCoreDataError(error)
         }
     }
 

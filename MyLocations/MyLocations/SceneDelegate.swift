@@ -8,14 +8,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else {
             return
         }
-        
+
         let tabController = window?.rootViewController as! UITabBarController
-        
+
         if let tabViewControllers = tabController.viewControllers {
             let navController = tabViewControllers.first as! UINavigationController
             let controller = navController.viewControllers.first as! CurrentLocationViewController
             controller.managedObjectContext = managedObjectContext
         }
+        
+        listenForFatalCoreDataNotifications()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -75,6 +77,54 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+}
+
+// MARK: - Helper methods
+
+extension SceneDelegate {
+    func listenForFatalCoreDataNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: dataSaveFailedNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else {
+                return
+            }
+
+            let message: String = """
+            There was a fatal error in the app and it cannot continue.
+
+            Press OK to terminate the app. Sorry for the inconvenience
+            """
+
+            let alert = UIAlertController(
+                title: "Internal Error",
+                message: message,
+                preferredStyle: .alert
+            )
+
+            let action = UIAlertAction(
+                title: "OK",
+                style: .default
+            ) { _ in
+                let exception = NSException(
+                    name: NSExceptionName.internalInconsistencyException,
+                    reason: "Fatal Core Data error"
+                )
+                exception.raise()
+            }
+
+            alert.addAction(action)
+
+            let tabController = window!.rootViewController!
+            tabController.present(
+                alert,
+                animated: true,
+                completion: nil
+            )
         }
     }
 }
