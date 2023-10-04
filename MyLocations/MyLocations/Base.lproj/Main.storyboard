@@ -460,7 +460,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="lQ4-bC-FhO" id="msf-bM-r0s"/>
                                     <outlet property="descriptionLabel" destination="pSk-Vr-XLD" id="OGG-Um-v0r"/>
-                                    <segue destination="6L2-Ph-vM0" kind="show" id="L5m-z9-gdo"/>
+                                    <segue destination="6L2-Ph-vM0" kind="show" identifier="EditLocation" id="L5m-z9-gdo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -51,3 +51,21 @@ extension LocationsViewController {
         return cell
     }
 }
+
+// MARK: - Navigation
+
+extension LocationsViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "EditLocation" {
+            let controller = segue.destination as! LocationDetailsViewController
+            controller.managedObjectContext = managedObjectContext
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.locationToEdit = locations[indexPath.row]
+            }
+        }
+    }
+}

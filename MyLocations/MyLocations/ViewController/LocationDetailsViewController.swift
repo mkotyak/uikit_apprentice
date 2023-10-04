@@ -3,8 +3,23 @@ import CoreLocation
 import UIKit
 
 class LocationDetailsViewController: UITableViewController {
-    private let date = Date()
+    private var date = Date()
+    
     var managedObjectContext: NSManagedObjectContext!
+    var locationToEdit: Location? {
+        didSet {
+            guard let location = locationToEdit else {
+                return
+            }
+            
+            descriptionText = location.locationDescription
+            categoryName = location.category
+            date = location.date
+            coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+            placemark = location.placemark
+        }
+    }
+    var descriptionText: String = ""
 
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var categoryLabel: UILabel!
@@ -32,7 +47,11 @@ class LocationDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        descriptionTextView.text = ""
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+        
+        descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
 
         latitudeLabel.text = String(
@@ -88,7 +107,15 @@ extension LocationDetailsViewController {
         let hudView = HudView.hud(inView: mainView, animated: true)
         hudView.text = "Tagged"
 
-        let location = Location(context: managedObjectContext)
+        let location: Location
+        
+        if let locationToEdit {
+            hudView.text = "Updated"
+            location = locationToEdit
+        } else {
+            location = Location(context: managedObjectContext)
+        }
+        
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
         location.latitude = coordinate.latitude
