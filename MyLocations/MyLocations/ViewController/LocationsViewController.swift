@@ -9,19 +9,23 @@ class LocationsViewController: UITableViewController {
         let fetchRequest = NSFetchRequest<Location>()
         
         let entity = Location.entity()
-        let sortDescriptor = NSSortDescriptor(
+        let categorySortDescriptor = NSSortDescriptor(
+            key: "category",
+            ascending: true
+        )
+        let dateSortDescriptor = NSSortDescriptor(
             key: "date",
             ascending: true
         )
         
         fetchRequest.entity = entity
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = [categorySortDescriptor, dateSortDescriptor]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController<Location>(
             fetchRequest: fetchRequest,
             managedObjectContext: managedObjectContext,
-            sectionNameKeyPath: nil,
+            sectionNameKeyPath: "category",
             cacheName: "Locations"
         )
         
@@ -92,6 +96,21 @@ extension LocationsViewController {
                 fatalCoreDataError(error)
             }
         }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        fetchedResultsController.sections?.count ?? 0
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
+        guard let sections = fetchedResultsController.sections else {
+            return nil
+        }
+        
+        return sections[section].name
     }
 }
 
