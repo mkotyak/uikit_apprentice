@@ -431,6 +431,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Dz-m3-7XI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oUG-iB-C2C" id="GGl-wI-ThB"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OWk-P6-uPC"/>
