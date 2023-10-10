@@ -206,8 +206,8 @@ extension LocationDetailsViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
         } else if indexPath.section == 1 && indexPath.row == 0 {
-//            takePhotoWithCamera()
-            choosePhotoFromLibrary()
+            tableView.deselectRow(at: indexPath, animated: true)
+            pickPhoto()
         }
     }
 }
@@ -215,6 +215,14 @@ extension LocationDetailsViewController {
 // MARK: - Image Helper Methods
 
 extension LocationDetailsViewController {
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPhotoMenu()
+        } else {
+            choosePhotoFromLibrary()
+        }
+    }
+
     func takePhotoWithCamera() {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .camera
@@ -231,6 +239,39 @@ extension LocationDetailsViewController {
         imagePicker.allowsEditing = true
 
         present(imagePicker, animated: true)
+    }
+
+    func showPhotoMenu() {
+        let allert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel
+        )
+
+        let takePhotoAction = UIAlertAction(
+            title: "Take Photo",
+            style: .default
+        ) { [weak self] _ in
+            self?.takePhotoWithCamera()
+        }
+
+        let chooseFromLibraryAction = UIAlertAction(
+            title: "Choose From Library",
+            style: .default
+        ) { [weak self] _ in
+            self?.choosePhotoFromLibrary()
+        }
+
+        allert.addAction(cancelAction)
+        allert.addAction(takePhotoAction)
+        allert.addAction(chooseFromLibraryAction)
+
+        present(allert, animated: true)
     }
 }
 
