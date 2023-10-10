@@ -48,7 +48,7 @@ class LocationDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let location = locationToEdit {
+        if let locationToEdit {
             title = "Edit Location"
         }
 
@@ -203,10 +203,38 @@ extension LocationDetailsViewController {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        guard indexPath.section == 0 && indexPath.row == 0 else {
-            return
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            takePhotoWithCamera()
         }
+    }
+}
 
-        descriptionTextView.becomeFirstResponder()
+// MARK: - Image Helper Methods
+
+extension LocationDetailsViewController {
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+
+        present(imagePicker, animated: true)
+    }
+}
+
+// MARK: - Image Picker Delegates
+
+extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        dismiss(animated: true)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }
