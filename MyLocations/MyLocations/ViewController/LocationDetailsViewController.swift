@@ -4,6 +4,13 @@ import UIKit
 
 class LocationDetailsViewController: UITableViewController {
     private var date = Date()
+    private var image: UIImage? {
+        didSet {
+            if let image {
+                show(image: image)
+            }
+        }
+    }
 
     var managedObjectContext: NSManagedObjectContext!
     var locationToEdit: Location? {
@@ -22,12 +29,15 @@ class LocationDetailsViewController: UITableViewController {
 
     var descriptionText: String = ""
 
-    @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var addPhotoLabel: UILabel!
+
+    @IBOutlet var descriptionTextView: UITextView!
+    @IBOutlet var imageView: UIImageView!
 
     var coordinate = CLLocationCoordinate2D(
         latitude: 0,
@@ -94,6 +104,12 @@ class LocationDetailsViewController: UITableViewController {
         }
 
         descriptionTextView.resignFirstResponder()
+    }
+
+    private func show(image: UIImage) {
+        imageView.image = image
+        imageView.isHidden = false
+        addPhotoLabel.text = ""
     }
 }
 
@@ -282,6 +298,7 @@ extension LocationDetailsViewController: UIImagePickerControllerDelegate, UINavi
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         dismiss(animated: true)
     }
 
