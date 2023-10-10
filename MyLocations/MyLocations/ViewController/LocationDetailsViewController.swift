@@ -39,6 +39,8 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var imageView: UIImageView!
 
+    @IBOutlet var imageHeight: NSLayoutConstraint!
+
     var coordinate = CLLocationCoordinate2D(
         latitude: 0,
         longitude: 0
@@ -110,6 +112,8 @@ class LocationDetailsViewController: UITableViewController {
         imageView.image = image
         imageView.isHidden = false
         addPhotoLabel.text = ""
+        imageHeight.constant = 260
+        tableView.reloadData()
     }
 }
 
