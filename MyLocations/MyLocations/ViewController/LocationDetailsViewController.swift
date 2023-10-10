@@ -4,14 +4,14 @@ import UIKit
 
 class LocationDetailsViewController: UITableViewController {
     private var date = Date()
-    
+
     var managedObjectContext: NSManagedObjectContext!
     var locationToEdit: Location? {
         didSet {
             guard let location = locationToEdit else {
                 return
             }
-            
+
             descriptionText = location.locationDescription
             categoryName = location.category
             date = location.date
@@ -19,6 +19,7 @@ class LocationDetailsViewController: UITableViewController {
             placemark = location.placemark
         }
     }
+
     var descriptionText: String = ""
 
     @IBOutlet var descriptionTextView: UITextView!
@@ -50,7 +51,7 @@ class LocationDetailsViewController: UITableViewController {
         if let location = locationToEdit {
             title = "Edit Location"
         }
-        
+
         descriptionTextView.text = descriptionText
         categoryLabel.text = categoryName
 
@@ -108,14 +109,14 @@ extension LocationDetailsViewController {
         hudView.text = "Tagged"
 
         let location: Location
-        
+
         if let locationToEdit {
             hudView.text = "Updated"
             location = locationToEdit
         } else {
             location = Location(context: managedObjectContext)
         }
-        
+
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
         location.latitude = coordinate.latitude
