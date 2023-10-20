@@ -21,7 +21,9 @@ class LocationCell: UITableViewCell {
             location.hasPhoto,
             let image = location.photoImage
         {
-            return image
+            return image.resized(
+                withBounds: CGSize(width: 52, height: 52)
+            )
         }
 
         return UIImage()
@@ -52,7 +54,8 @@ class LocationCell: UITableViewCell {
             addressLabel.text = String(
                 format: "Lat: %.8f, Long: %.8f",
                 location.latitude,
-                location.longitude)
+                location.longitude
+            )
         }
 
         photoImageView.image = thumbnail(for: location)
