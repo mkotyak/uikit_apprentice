@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zMJ-rb-2I2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zMJ-rb-2I2">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -496,31 +496,41 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-Vr-XLD">
-                                            <rect key="frame" x="16" y="11" width="343" height="21"/>
+                                            <rect key="frame" x="76" y="11" width="283" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQ4-bC-FhO">
-                                            <rect key="frame" x="16" y="37" width="343" height="17"/>
+                                            <rect key="frame" x="76" y="37" width="283" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ca5-rv-GTH">
+                                            <rect key="frame" x="16" y="6" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="3Ob-Fq-40V"/>
+                                                <constraint firstAttribute="width" constant="52" id="wiQ-6w-jQV"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="ca5-rv-GTH" firstAttribute="top" secondItem="iQK-Cv-FhK" secondAttribute="top" constant="6" id="Bmh-R0-xss"/>
+                                        <constraint firstItem="ca5-rv-GTH" firstAttribute="leading" secondItem="iQK-Cv-FhK" secondAttribute="leading" constant="16" id="EU1-hZ-Leq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="lQ4-bC-FhO" secondAttribute="trailing" id="FJ6-18-gAt"/>
-                                        <constraint firstItem="pSk-Vr-XLD" firstAttribute="leading" secondItem="iQK-Cv-FhK" secondAttribute="leadingMargin" id="Wc2-H5-ZMa"/>
-                                        <constraint firstItem="lQ4-bC-FhO" firstAttribute="leading" secondItem="iQK-Cv-FhK" secondAttribute="leadingMargin" id="YU5-1Y-JgJ"/>
                                         <constraint firstItem="lQ4-bC-FhO" firstAttribute="bottom" secondItem="iQK-Cv-FhK" secondAttribute="bottomMargin" id="ZC1-mj-SU2"/>
                                         <constraint firstItem="lQ4-bC-FhO" firstAttribute="top" secondItem="pSk-Vr-XLD" secondAttribute="bottom" constant="5" id="ZXd-mW-MiI"/>
+                                        <constraint firstItem="pSk-Vr-XLD" firstAttribute="leading" secondItem="ca5-rv-GTH" secondAttribute="trailing" constant="8" symbolic="YES" id="agz-xJ-mcj"/>
                                         <constraint firstItem="pSk-Vr-XLD" firstAttribute="top" secondItem="iQK-Cv-FhK" secondAttribute="topMargin" id="bMm-Mg-NuJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pSk-Vr-XLD" secondAttribute="trailing" id="c7i-bD-hrr"/>
+                                        <constraint firstItem="lQ4-bC-FhO" firstAttribute="leading" secondItem="ca5-rv-GTH" secondAttribute="trailing" constant="8" symbolic="YES" id="cwV-WQ-hHT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="lQ4-bC-FhO" id="msf-bM-r0s"/>
                                     <outlet property="descriptionLabel" destination="pSk-Vr-XLD" id="OGG-Um-v0r"/>
+                                    <outlet property="photoImageView" destination="ca5-rv-GTH" id="9bI-Cz-EMk"/>
                                     <segue destination="6L2-Ph-vM0" kind="show" identifier="EditLocation" id="L5m-z9-gdo"/>
                                 </connections>
                             </tableViewCell>
@@ -574,7 +584,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iaK-nf-mQF"/>
+        <segue reference="L5m-z9-gdo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
