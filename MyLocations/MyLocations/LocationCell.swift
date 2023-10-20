@@ -16,6 +16,17 @@ class LocationCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    private func thumbnail(for location: Location) -> UIImage {
+        if
+            location.hasPhoto,
+            let image = location.photoImage
+        {
+            return image
+        }
+
+        return UIImage()
+    }
+
     // MARK: - Helpers methods
 
     func configure(for location: Location) {
@@ -43,5 +54,7 @@ class LocationCell: UITableViewCell {
                 location.latitude,
                 location.longitude)
         }
+
+        photoImageView.image = thumbnail(for: location)
     }
 }
