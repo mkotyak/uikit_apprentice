@@ -8,21 +8,14 @@ public class Location: NSManagedObject {
         photoID != nil
     }
     
-    var photoURL: URL? {
-        guard hasPhoto else {
-            assertionFailure("🚨No photo ID set")
-            return nil
-        }
+    var photoURL: URL {
+        assert(hasPhoto, "🚨No photo ID set")
         
         let filename = "Photo-\(photoID!.intValue).jpg"
         return applicationDocumentsDirectory.appendingPathComponent(filename)
     }
     
     var photoImage: UIImage? {
-        guard let photoURL else {
-            return nil
-        }
-        
         return UIImage(contentsOfFile: photoURL.path)
     }
     

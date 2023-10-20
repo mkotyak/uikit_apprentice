@@ -155,6 +155,7 @@ extension LocationDetailsViewController {
             location = locationToEdit
         } else {
             location = Location(context: managedObjectContext)
+            location.photoID = nil
         }
 
         location.locationDescription = descriptionTextView.text
@@ -163,6 +164,22 @@ extension LocationDetailsViewController {
         location.longitude = coordinate.longitude
         location.date = date
         location.placemark = placemark
+
+        if let image {
+            // 1
+            if !location.hasPhoto {
+                location.photoID = Location.nextPhotoID() as NSNumber
+            }
+            // 2
+            if let data = image.jpegData(compressionQuality: 0.5) {
+                // 3
+                do {
+                    try data.write(to: location.photoURL, options: .atomic)
+                } catch {
+                    print("Error writing file: \(error)")
+                }
+            }
+        }
 
         do {
             try managedObjectContext.save()
