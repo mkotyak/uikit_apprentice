@@ -62,6 +62,12 @@ class LocationDetailsViewController: UITableViewController {
 
         if let locationToEdit {
             title = "Edit Location"
+
+            if locationToEdit.hasPhoto {
+                if let image = locationToEdit.photoImage {
+                    show(image: image)
+                }
+            }
         }
 
         descriptionTextView.text = descriptionText
