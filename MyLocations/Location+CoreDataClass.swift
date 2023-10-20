@@ -1,9 +1,39 @@
 import CoreData
-import MapKit
 import Foundation
+import MapKit
 
 @objc(Location)
-public class Location: NSManagedObject {}
+public class Location: NSManagedObject {
+    var hasPhoto: Bool {
+        photoID != nil
+    }
+    
+    var photoURL: URL? {
+        guard hasPhoto else {
+            assertionFailure("🚨No photo ID set")
+            return nil
+        }
+        
+        let filename = "Photo-\(photoID!.intValue).jpg"
+        return applicationDocumentsDirectory.appendingPathComponent(filename)
+    }
+    
+    var photoImage: UIImage? {
+        guard let photoURL else {
+            return nil
+        }
+        
+        return UIImage(contentsOfFile: photoURL.path)
+    }
+    
+    class func nextPhotoID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let currentID = userDefaults.integer(forKey: "PhotoID") + 1
+        userDefaults.set(currentID, forKey: "PhotoID")
+        
+        return currentID
+    }
+}
 
 extension Location: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
