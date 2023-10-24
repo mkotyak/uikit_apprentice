@@ -12,6 +12,7 @@
 		733C64662AE284BC00DC3720 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C64652AE284BC00DC3720 /* UIImage+Resize.swift */; };
 		733C64682AE2B18600DC3720 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C64672AE2B18600DC3720 /* String+AddText.swift */; };
 		733FBD302ACF08AD00D90928 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733FBD2F2ACF08AD00D90928 /* MapViewController.swift */; };
+		7388B0382AE81CCB00471295 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7388B0372AE81CCB00471295 /* Sound.caf */; };
 		73AF7ED52AB889C300E83B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED42AB889C300E83B6F /* AppDelegate.swift */; };
 		73AF7ED72AB889C300E83B6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */; };
 		73AF7ED92AB889C300E83B6F /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF7ED82AB889C300E83B6F /* CurrentLocationViewController.swift */; };
@@ -33,6 +34,7 @@
 		733C64652AE284BC00DC3720 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		733C64672AE2B18600DC3720 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		733FBD2F2ACF08AD00D90928 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7388B0372AE81CCB00471295 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		73AF7ED12AB889C300E83B6F /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AF7ED42AB889C300E83B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73AF7ED62AB889C300E83B6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		73AF7EC82AB889C300E83B6F = {
 			isa = PBXGroup;
 			children = (
+				7388B0372AE81CCB00471295 /* Sound.caf */,
 				731F27D62AC4569B0045ACC0 /* Location+CoreDataClass.swift */,
 				731F27D72AC4569B0045ACC0 /* Location+CoreDataProperties.swift */,
 				73AF7ED32AB889C300E83B6F /* MyLocations */,
@@ -187,6 +190,7 @@
 			files = (
 				73AF7EE42AB889C400E83B6F /* LaunchScreen.storyboard in Resources */,
 				73AF7EE12AB889C400E83B6F /* Assets.xcassets in Resources */,
+				7388B0382AE81CCB00471295 /* Sound.caf in Resources */,
 				73AF7EDC2AB889C300E83B6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
