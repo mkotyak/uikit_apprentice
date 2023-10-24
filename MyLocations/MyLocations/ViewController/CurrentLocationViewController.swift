@@ -7,7 +7,9 @@ class CurrentLocationViewController: UIViewController {
 
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
+    @IBOutlet var latitudeTextLabel: UILabel!
     @IBOutlet var longitudeLabel: UILabel!
+    @IBOutlet var longitudeTextLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
 
     @IBOutlet var tagButton: UIButton!
@@ -50,6 +52,8 @@ class CurrentLocationViewController: UIViewController {
                 format: "%.8f",
                 location.coordinate.longitude
             )
+            latitudeTextLabel.isHidden = false
+            longitudeTextLabel.isHidden = false
             tagButton.isHidden = false
             messageLabel.text = ""
 
@@ -65,6 +69,8 @@ class CurrentLocationViewController: UIViewController {
         } else {
             latitudeLabel.text = ""
             longitudeLabel.text = ""
+            latitudeTextLabel.isHidden = true
+            longitudeTextLabel.isHidden = true
             addressLabel.text = ""
             tagButton.isHidden = true
 
