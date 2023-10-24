@@ -5,6 +5,8 @@ import UIKit
 class CurrentLocationViewController: UIViewController {
     var managedObjectContext: NSManagedObjectContext!
 
+    @IBOutlet var containerView: UIView!
+
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var latitudeLabel: UILabel!
     @IBOutlet var latitudeTextLabel: UILabel!
@@ -26,6 +28,26 @@ class CurrentLocationViewController: UIViewController {
     private var lastGeocodingError: Error?
 
     private var retrieveLocationTimeoutTimer: Timer?
+
+    private var isLogoVisible: Bool = false
+
+    private lazy var logoButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setBackgroundImage(
+            .init(named: "Logo"),
+            for: .normal
+        )
+        button.sizeToFit()
+        button.addTarget(
+            self,
+            action: #selector(getLocation),
+            for: .touchUpInside
+        )
+        button.center.x = self.view.bounds.midX
+        button.center.y = 220
+
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +108,8 @@ class CurrentLocationViewController: UIViewController {
             } else if isUpdatingLocation {
                 statusMessage = "Searching..."
             } else {
-                statusMessage = "Tap 'Get My Location' to Start"
+                statusMessage = ""
+                showLogoView()
             }
             messageLabel.text = statusMessage
         }
@@ -160,6 +183,22 @@ class CurrentLocationViewController: UIViewController {
 
         return line1
     }
+
+    private func showLogoView() {
+        guard !isLogoVisible else {
+            return
+        }
+
+        isLogoVisible = true
+        containerView.isHidden = true
+        view.addSubview(logoButton)
+    }
+
+    private func hideLogoView() {
+        isLogoVisible = false
+        containerView.isHidden = false
+        logoButton.removeFromSuperview()
+    }
 }
 
 // MARK: - Actions
@@ -177,6 +216,10 @@ extension CurrentLocationViewController {
             showLocationServicesDeniedAlert()
             updateLabels()
             return
+        }
+
+        if isLogoVisible {
+            hideLogoView()
         }
 
         if isUpdatingLocation {
