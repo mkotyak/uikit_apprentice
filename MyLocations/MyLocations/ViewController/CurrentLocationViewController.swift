@@ -118,10 +118,25 @@ class CurrentLocationViewController: UIViewController {
     }
 
     private func configureGetButton() {
+        let spinnerTag = 1000
+
         if isUpdatingLocation {
             getButton.setTitle("Stop", for: .normal)
+
+            if view.viewWithTag(spinnerTag) == nil {
+                let spinner = UIActivityIndicatorView(style: .medium)
+                spinner.center = messageLabel.center
+                spinner.center.y += spinner.bounds.size.height / 2 + 25
+                spinner.startAnimating()
+                spinner.tag = spinnerTag
+                containerView.addSubview(spinner)
+            }
         } else {
             getButton.setTitle("Get My Location", for: .normal)
+
+            if let spinner = view.viewWithTag(spinnerTag) {
+                spinner.removeFromSuperview()
+            }
         }
     }
 
