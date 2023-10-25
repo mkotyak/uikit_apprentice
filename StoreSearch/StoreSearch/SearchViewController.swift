@@ -9,3 +9,11 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 }
+
+// MARK: - UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        debugPrint("The search text is: '\(searchBar.text!)'")
+    }
+}
