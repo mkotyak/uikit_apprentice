@@ -1,19 +1,11 @@
-//
-//  ViewController.swift
-//  StoreSearch
-//
-//  Created by Maria Kotyak on 25/10/2023.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
-
