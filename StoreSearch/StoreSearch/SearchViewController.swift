@@ -8,7 +8,12 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableView.contentInset = UIEdgeInsets(
+            top: 51,
+            left: 0,
+            bottom: 0,
+            right: 0
+        )
     }
 }
 
@@ -16,6 +21,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         searchResult = []
 
         for index in 0 ... 2 {
@@ -25,6 +31,10 @@ extension SearchViewController: UISearchBarDelegate {
         }
 
         tableView.reloadData()
+    }
+
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        .topAttached
     }
 }
 
