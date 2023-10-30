@@ -3,6 +3,7 @@ import UIKit
 class SearchViewController: UIViewController {
     private enum Constants {
         static var searchResultCellIdentifier: String { "SearchResultCell" }
+        static var nothingFoundCellIdentifier: String { "NothingFoundCell" }
     }
 
     @IBOutlet var searchBar: UISearchBar!
@@ -20,13 +21,22 @@ class SearchViewController: UIViewController {
             right: 0
         )
 
-        let cellNib = UINib(
+        var cellNib = UINib(
             nibName: Constants.searchResultCellIdentifier,
             bundle: nil
         )
         tableView.register(
             cellNib,
             forCellReuseIdentifier: Constants.searchResultCellIdentifier
+        )
+
+        cellNib = UINib(
+            nibName: Constants.nothingFoundCellIdentifier,
+            bundle: nil
+        )
+        tableView.register(
+            cellNib,
+            forCellReuseIdentifier: Constants.nothingFoundCellIdentifier
         )
     }
 }
@@ -77,23 +87,23 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cellIdentifier = Constants.searchResultCellIdentifier
-
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellIdentifier,
-            for: indexPath
-        ) as! SearchResultCell
-
         if searchResults.count == 0 {
-            cell.nameLabel.text = "(Nothing found)"
-            cell.artistNameLabel.text = " "
+            return tableView.dequeueReusableCell(
+                withIdentifier: Constants.nothingFoundCellIdentifier,
+                for: indexPath
+            )
         } else {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: Constants.searchResultCellIdentifier,
+                for: indexPath
+            ) as! SearchResultCell
+
             let searchResult = searchResults[indexPath.row]
             cell.nameLabel.text = searchResult.name
             cell.artistNameLabel.text = searchResult.artistName
-        }
 
-        return cell
+            return cell
+        }
     }
 
     func tableView(
