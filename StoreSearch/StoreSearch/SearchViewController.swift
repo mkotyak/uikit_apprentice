@@ -1,6 +1,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    private enum Constants {
+        static var searchResultCellIdentifier: String { "SearchResultCell" }
+    }
+
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
 
@@ -16,8 +20,14 @@ class SearchViewController: UIViewController {
             right: 0
         )
 
-        let cellNib = UINib(nibName: "SearchResultCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "SearchResultCell")
+        let cellNib = UINib(
+            nibName: Constants.searchResultCellIdentifier,
+            bundle: nil
+        )
+        tableView.register(
+            cellNib,
+            forCellReuseIdentifier: Constants.searchResultCellIdentifier
+        )
     }
 }
 
@@ -67,7 +77,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cellIdentifier = "SearchResultCell"
+        let cellIdentifier = Constants.searchResultCellIdentifier
 
         let cell = tableView.dequeueReusableCell(
             withIdentifier: cellIdentifier,
