@@ -38,6 +38,8 @@ class SearchViewController: UIViewController {
             cellNib,
             forCellReuseIdentifier: Constants.nothingFoundCellIdentifier
         )
+        
+        searchBar.becomeFirstResponder()
     }
 }
 
