@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
             cellNib,
             forCellReuseIdentifier: Constants.nothingFoundCellIdentifier
         )
-        
+
         searchBar.becomeFirstResponder()
     }
 }
@@ -47,21 +47,21 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        hasSearched = true
-        searchBar.resignFirstResponder()
-        searchResults = []
+        if !searchBar.text!.isEmpty {
+            searchBar.resignFirstResponder()
 
-        if searchBar.text! != "justin bieber" {
-            for index in 0 ... 2 {
-                let searchResult: SearchResult = .init()
-                searchResult.name = String(format: "Fake Result %d for", index)
-                searchResult.artistName = searchBar.text!
+            hasSearched = true
+            searchResults = []
 
-                searchResults.append(searchResult)
+            let url = iTunesURL(searchText: searchBar.text!)
+            debugPrint("URL: '\(url)'")
+
+            if let jsonString = performStoreRequest(with: url) {
+                debugPrint("Recieved JSON string '\(jsonString)'")
             }
-        }
 
-        tableView.reloadData()
+            tableView.reloadData()
+        }
     }
 
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -123,6 +123,40 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         } else {
             return indexPath
+        }
+    }
+}
+
+// MARK: Networking
+
+extension SearchViewController {
+    func iTunesURL(searchText: String) -> URL {
+        let urlString = String(
+            format: "https://itunes.apple.com/search?term=%@",
+            searchText
+        )
+
+        return URL(string: urlString)!
+    }
+
+    func performStoreRequest(with url: URL) -> Data? {
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            debugPrint("Download Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    func parse(data: Data) -> [SearchResult] {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(ResultArray.self, from: data)
+
+            return result.results
+        } catch {
+            debugPrint("JSON Error: \(error.localizedDescription)")
+            return []
         }
     }
 }
