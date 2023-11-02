@@ -4,6 +4,7 @@ class SearchViewController: UIViewController {
     private enum Constants {
         static var searchResultCellIdentifier: String { "SearchResultCell" }
         static var nothingFoundCellIdentifier: String { "NothingFoundCell" }
+        static var loadingCellIdentifier: String { "LoadingCell" }
     }
 
     @IBOutlet var searchBar: UISearchBar!
@@ -11,6 +12,7 @@ class SearchViewController: UIViewController {
 
     private var searchResults: [SearchResult] = []
     private var hasSearched: Bool = false
+    private var isLoading: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,15 @@ class SearchViewController: UIViewController {
             forCellReuseIdentifier: Constants.nothingFoundCellIdentifier
         )
 
+        cellNib = UINib(
+            nibName: Constants.loadingCellIdentifier,
+            bundle: nil
+        )
+        tableView.register(
+            cellNib,
+            forCellReuseIdentifier: Constants.loadingCellIdentifier
+        )
+
         searchBar.becomeFirstResponder()
     }
 }
@@ -50,6 +61,7 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
 
+            isLoading = true
             hasSearched = true
             searchResults = []
 
@@ -61,6 +73,7 @@ extension SearchViewController: UISearchBarDelegate {
                 searchResults.sort { $0.name < $1.name }
             }
 
+            isLoading = false
             tableView.reloadData()
         }
     }
@@ -77,7 +90,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        if !hasSearched {
+        if isLoading {
+            return 1
+        } else if !hasSearched {
             return 0
         } else if searchResults.count == 0 {
             return 1
@@ -90,7 +105,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        if searchResults.count == 0 {
+        if isLoading {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: Constants.loadingCellIdentifier,
+                for: indexPath
+            )
+            let spinner = cell.viewWithTag(100) as! UIActivityIndicatorView
+            spinner.startAnimating()
+
+            return cell
+        } else if searchResults.count == 0 {
             return tableView.dequeueReusableCell(
                 withIdentifier: Constants.nothingFoundCellIdentifier,
                 for: indexPath
@@ -129,7 +153,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         willSelectRowAt indexPath: IndexPath
     ) -> IndexPath? {
-        if searchResults.count == 0 {
+        if searchResults.count == 0 || isLoading {
             return nil
         } else {
             return indexPath
