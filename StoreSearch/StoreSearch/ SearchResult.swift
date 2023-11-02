@@ -26,7 +26,7 @@ class SearchResult: Codable, CustomStringConvertible {
     var genre: String = ""
 
     var name: String {
-        trackName ?? ""
+        trackName ?? " "
     }
 
     var description: String {
