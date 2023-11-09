@@ -100,6 +100,16 @@ extension SearchViewController: UISearchBarDelegate {
                 } else {
                     debugPrint("Failure! \(response!)")
                 }
+
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else {
+                        return
+                    }
+                    hasSearched = false
+                    isLoading = false
+                    tableView.reloadData()
+                    showNetworkError()
+                }
             }
 
             dataTask.resume()
