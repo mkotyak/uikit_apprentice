@@ -5,6 +5,8 @@ class SearchResultCell: UITableViewCell {
     @IBOutlet var artistNameLabel: UILabel!
     @IBOutlet var artworkImageView: UIImageView!
 
+    private var downloadTask: URLSessionDownloadTask?
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -30,6 +32,12 @@ extension SearchResultCell {
             artistNameLabel.text = "Unknown"
         } else {
             artistNameLabel.text = String(format: "%@ (%@)", result.artist, result.type)
+        }
+
+        artworkImageView.image = UIImage(systemName: "square")
+
+        if let smallURL = URL(string: result.imageSmall) {
+            downloadTask = artworkImageView.loadImage(url: smallURL)
         }
     }
 }
