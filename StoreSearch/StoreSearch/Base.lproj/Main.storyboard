@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -33,6 +33,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="yLz-lC-n9a"/>
                                 </connections>
                             </searchBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owc-pL-jSy">
+                                <rect key="frame" x="0.0" y="115" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="QkL-bV-o1e">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vfU-yu-dPf">
+                                            <rect key="frame" x="16" y="5.6666666666666679" width="361" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title=" Software"/>
+                                                <segment title="E-books"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -40,10 +57,13 @@
                             <constraint firstItem="nTs-9r-Q9w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="12J-mr-1jY"/>
                             <constraint firstItem="66o-4S-dHB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7Wo-Zx-xhk"/>
                             <constraint firstItem="nTs-9r-Q9w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Ak-xn-VkM"/>
+                            <constraint firstItem="Owc-pL-jSy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AY8-iV-7D2"/>
                             <constraint firstAttribute="bottom" secondItem="66o-4S-dHB" secondAttribute="bottom" id="Phc-Id-b69"/>
                             <constraint firstItem="nTs-9r-Q9w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tlw-3T-gJq"/>
+                            <constraint firstItem="Owc-pL-jSy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d2e-fY-Oor"/>
                             <constraint firstItem="66o-4S-dHB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kXT-DY-X6d"/>
                             <constraint firstItem="66o-4S-dHB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pnf-y0-XxK"/>
+                            <constraint firstItem="Owc-pL-jSy" firstAttribute="top" secondItem="nTs-9r-Q9w" secondAttribute="bottom" id="tdA-e0-cPF"/>
                         </constraints>
                     </view>
                     <connections>
