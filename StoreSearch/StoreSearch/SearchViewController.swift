@@ -9,6 +9,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
 
     private var searchResults: [SearchResult] = []
     private var dataTask: URLSessionDataTask?
@@ -53,6 +54,10 @@ class SearchViewController: UIViewController {
         )
 
         searchBar.becomeFirstResponder()
+    }
+
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        debugPrint("Segment changed: \(sender.selectedSegmentIndex)")
     }
 }
 
