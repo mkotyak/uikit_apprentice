@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(
-            top: 51,
+            top: 91,
             left: 0,
             bottom: 0,
             right: 0
@@ -57,14 +57,10 @@ class SearchViewController: UIViewController {
     }
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        debugPrint("Segment changed: \(sender.selectedSegmentIndex)")
+        performSearch()
     }
-}
 
-// MARK: - UISearchBarDelegate
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    private func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
 
@@ -76,7 +72,10 @@ extension SearchViewController: UISearchBarDelegate {
             hasSearched = true
             searchResults = []
 
-            let url = iTunesURL(searchText: searchBar.text!)
+            let url = iTunesURL(
+                searchText: searchBar.text!,
+                categoryIndex: segmentedControl.selectedSegmentIndex
+            )
             let session = URLSession.shared
 
             dataTask = session.dataTask(with: url) { [weak self] data, response, error in
@@ -125,6 +124,14 @@ extension SearchViewController: UISearchBarDelegate {
 
             dataTask?.resume()
         }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
     }
 
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -213,10 +220,26 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: Networking
 
 extension SearchViewController {
-    private func iTunesURL(searchText: String) -> URL {
+    private func iTunesURL(
+        searchText: String,
+        categoryIndex: Int
+    ) -> URL {
+        let category: String
+
+        switch categoryIndex {
+        case 1:
+            category = "musicTrack"
+        case 2:
+            category = "software"
+        case 3:
+            category = "ebook"
+        default:
+            category = ""
+        }
+
         let urlString = String(
-            format: "https://itunes.apple.com/search?term=%@",
-            searchText
+            format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@",
+            searchText, category
         )
 
         return URL(string: urlString)!
