@@ -19,3 +19,17 @@ class SearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
 }
+
+// MARK: - Helper Methods
+
+extension SearchResultCell {
+    func configure(for result: SearchResult) {
+        nameLabel.text = result.name
+
+        if result.artist.isEmpty {
+            artistNameLabel.text = "Unknown"
+        } else {
+            artistNameLabel.text = String(format: "%@ (%@)", result.artist, result.type)
+        }
+    }
+}
