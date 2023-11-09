@@ -69,14 +69,34 @@ extension SearchViewController: UISearchBarDelegate {
 
             let url = iTunesURL(searchText: searchBar.text!)
             let session = URLSession.shared
-            let dataTask = session.dataTask(with: url) { data, response, error in
+            let dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+                guard let self else {
+                    return
+                }
+
                 if let error {
                     debugPrint("Failure! \(error.localizedDescription)")
                 } else if
                     let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200
                 {
-                    debugPrint("Success! \(data!)")
+                    guard let data else {
+                        debugPrint("Data is empty!")
+                        return
+                    }
+
+                    searchResults = parse(data: data)
+                    searchResults.sort { $0.name < $1.name }
+
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else {
+                            return
+                        }
+                        isLoading = false
+                        tableView.reloadData()
+                    }
+
+                    return
                 } else {
                     debugPrint("Failure! \(response!)")
                 }
