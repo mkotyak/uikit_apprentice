@@ -206,6 +206,7 @@
                         <outlet property="genreLabel" destination="7gS-kr-k0z" id="xmA-Ef-FaW"/>
                         <outlet property="kindLabel" destination="y3U-q6-pOz" id="Lrb-Bi-xos"/>
                         <outlet property="nameLabel" destination="D9x-wa-Qsg" id="anw-mB-tTl"/>
+                        <outlet property="popupView" destination="fbg-RD-Wb6" id="WmB-1S-f7j"/>
                         <outlet property="priceButton" destination="iS8-Ql-w2e" id="NgM-2j-gnA"/>
                     </connections>
                 </viewController>
@@ -223,7 +224,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DetailBG">
-            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="0.94999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SearchBar">
             <color red="0.70588235294117652" green="0.94117647058823528" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
