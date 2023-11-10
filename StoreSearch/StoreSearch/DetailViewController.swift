@@ -10,6 +10,7 @@ class DetailViewController: UIViewController {
     @IBOutlet var priceButton: UIButton!
 
     var searchResult: SearchResult!
+    var downloadTask: URLSessionDownloadTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class DetailViewController: UIViewController {
         if searchResult != nil {
             updateUI()
         }
+    }
+    
+    deinit {
+        downloadTask?.cancel()
     }
 }
 
@@ -77,6 +82,11 @@ extension DetailViewController {
         }
 
         priceButton.setTitle(priceText, for: .normal)
+
+        // Get image
+        if let largeURL = URL(string: searchResult.imageLarge) {
+            downloadTask = artworkImageView.loadImage(url: largeURL)
+        }
     }
 }
 
