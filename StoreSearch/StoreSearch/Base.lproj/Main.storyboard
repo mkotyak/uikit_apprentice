@@ -171,7 +171,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-O0-wnP" userLabel="Close Button">
-                                        <rect key="frame" x="222.33333333333334" y="8" width="49.666666666666657" height="34.333333333333336"/>
+                                        <rect key="frame" x="230.33333333333334" y="8" width="49.666666666666657" height="34.333333333333336"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system"/>
@@ -187,7 +187,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Wmz-f3-oxe" secondAttribute="trailing" constant="16" id="CO7-6M-HqL"/>
                                     <constraint firstItem="Wmz-f3-oxe" firstAttribute="leading" secondItem="fbg-RD-Wb6" secondAttribute="leading" constant="16" id="UXF-6Q-9Th"/>
                                     <constraint firstItem="X6K-O0-wnP" firstAttribute="top" secondItem="fbg-RD-Wb6" secondAttribute="top" constant="8" id="Zp3-Dh-HdK"/>
-                                    <constraint firstAttribute="trailing" secondItem="X6K-O0-wnP" secondAttribute="trailing" constant="8" id="drd-Sw-nUa"/>
+                                    <constraint firstAttribute="trailing" secondItem="X6K-O0-wnP" secondAttribute="trailing" id="drd-Sw-nUa"/>
                                     <constraint firstAttribute="width" constant="280" id="rKN-dh-En4"/>
                                     <constraint firstAttribute="bottom" secondItem="Wmz-f3-oxe" secondAttribute="bottom" constant="16" id="uld-Sg-Bsj"/>
                                 </constraints>
@@ -200,6 +200,14 @@
                             <constraint firstItem="fbg-RD-Wb6" firstAttribute="centerY" secondItem="Ecu-5N-ypl" secondAttribute="centerY" id="jDV-KF-ikO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistNameLabel" destination="ldd-qy-fFX" id="Gf1-yJ-RS0"/>
+                        <outlet property="artworkImageView" destination="lWR-3R-6as" id="elc-nu-5oA"/>
+                        <outlet property="genreLabel" destination="7gS-kr-k0z" id="xmA-Ef-FaW"/>
+                        <outlet property="kindLabel" destination="y3U-q6-pOz" id="Lrb-Bi-xos"/>
+                        <outlet property="nameLabel" destination="D9x-wa-Qsg" id="anw-mB-tTl"/>
+                        <outlet property="priceButton" destination="iS8-Ql-w2e" id="NgM-2j-gnA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RF-qy-NDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
