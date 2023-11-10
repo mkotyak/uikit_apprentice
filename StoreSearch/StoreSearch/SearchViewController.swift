@@ -265,3 +265,19 @@ extension SearchViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+// MARK: - Navigation
+
+extension SearchViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "ShowDetail" {
+            let detailViewController = segue.destination as! DetailViewController
+            let indexPath = sender as! IndexPath
+
+            detailViewController.searchResult = searchResults[indexPath.row]
+        }
+    }
+}
