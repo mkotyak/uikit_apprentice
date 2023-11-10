@@ -37,6 +37,14 @@ extension DetailViewController {
     @IBAction func close() {
         dismiss(animated: true)
     }
+
+    @IBAction func openInStore() {
+        guard let url = URL(string: searchResult.storeURL) else {
+            return
+        }
+
+        UIApplication.shared.open(url)
+    }
 }
 
 // MARK: - Helper Method
