@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -73,6 +73,7 @@
                         <outlet property="searchBar" destination="nTs-9r-Q9w" id="5d1-ke-r9S"/>
                         <outlet property="segmentedControl" destination="vfU-yu-dPf" id="dYD-bf-nN9"/>
                         <outlet property="tableView" destination="66o-4S-dHB" id="FvB-xx-qxs"/>
+                        <segue destination="YVK-pN-kOU" kind="presentation" identifier="ShowDetail" id="26x-sx-G2v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -82,19 +83,22 @@
         <!-- Detail-->
         <scene sceneID="Oun-ei-3ae">
             <objects>
-                <viewController id="YVK-pN-kOU" userLabel=" Detail" sceneMemberID="viewController">
+                <viewController id="YVK-pN-kOU" userLabel=" Detail" customClass="DetailViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q4r-uz-vcv">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbg-RD-Wb6" userLabel="Pop-up View">
-                                <rect key="frame" x="56.666666666666657" y="298.66666666666669" width="280" height="280.00000000000006"/>
+                                <rect key="frame" x="56.666666666666657" y="281" width="280" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-O0-wnP" userLabel="Close Button">
                                         <rect key="frame" x="222.33333333333334" y="8" width="49.666666666666657" height="34.333333333333336"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="close" destination="YVK-pN-kOU" eventType="touchUpInside" id="zu7-gI-CuL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="DetailBG"/>
@@ -107,7 +111,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ecu-5N-ypl"/>
-                        <color key="backgroundColor" name="ArtistName"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fbg-RD-Wb6" firstAttribute="centerX" secondItem="Ecu-5N-ypl" secondAttribute="centerX" id="245-bH-eJT"/>
                             <constraint firstItem="fbg-RD-Wb6" firstAttribute="centerY" secondItem="Ecu-5N-ypl" secondAttribute="centerY" id="jDV-KF-ikO"/>
@@ -124,11 +128,8 @@
         <namedColor name="AccentColor">
             <color red="0.039215686274509803" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="ArtistName">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="DetailBG">
-            <color red="0.99999994039535522" green="1" blue="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SearchBar">
             <color red="0.70588235294117652" green="0.94117647058823528" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
