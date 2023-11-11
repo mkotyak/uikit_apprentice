@@ -21,6 +21,7 @@
 		7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04E2AE918EC00471295 /* Assets.xcassets */; };
 		73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD72AFFAA4E00DE3904 /* GradientView.swift */; };
 		73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */; };
+		73F99BDD2AFFB23400DE3904 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7388B0532AE918EC00471295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F99BD72AFFAA4E00DE3904 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
+		73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,6 @@
 				7388B0532AE918EC00471295 /* Info.plist */,
 				7302042F2AEAB4590027A2DE /*  SearchResult.swift */,
 				7388B0452AE918EB00471295 /* AppDelegate.swift */,
-				73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */,
 				733714782AFE44C3003D99DA /* DetailViewController.swift */,
 				73F99BD72AFFAA4E00DE3904 /* GradientView.swift */,
 				7388B0472AE918EB00471295 /* SceneDelegate.swift */,
@@ -93,10 +94,20 @@
 				733714732AF3E742003D99DA /* LoadingCell.xib */,
 				730204372AEFA62D0027A2DE /* NothingFoundCell.xib */,
 				730204312AEF8F760027A2DE /* SearchResultCell.xib */,
+				73F99BDB2AFFB22A00DE3904 /* Animation */,
 				733714752AFD1EDD003D99DA /* Extensions */,
 				7388B04B2AE918EB00471295 /* Main.storyboard */,
 			);
 			path = StoreSearch;
+			sourceTree = "<group>";
+		};
+		73F99BDB2AFFB22A00DE3904 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */,
+				73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				730204342AEF9E3D0027A2DE /* SearchResultCell.swift in Sources */,
 				73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */,
 				733714792AFE44C3003D99DA /* DetailViewController.swift in Sources */,
+				73F99BDD2AFFB23400DE3904 /* SlideOutAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
