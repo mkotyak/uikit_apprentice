@@ -37,6 +37,11 @@ class DetailViewController: UIViewController {
         view.insertSubview(dimmingView, at: 0)
     }
 
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        transitioningDelegate = self
+    }
+
     deinit {
         downloadTask?.cancel()
     }
@@ -104,5 +109,17 @@ extension DetailViewController: UIGestureRecognizerDelegate {
         shouldReceive touch: UITouch
     ) -> Bool {
         touch.view === view
+    }
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension DetailViewController: UIViewControllerTransitioningDelegate {
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+        source: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+        return BounceAnimationController()
     }
 }

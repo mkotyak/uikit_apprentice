@@ -20,6 +20,7 @@
 		7388B04D2AE918EB00471295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04B2AE918EB00471295 /* Main.storyboard */; };
 		7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04E2AE918EC00471295 /* Assets.xcassets */; };
 		73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD72AFFAA4E00DE3904 /* GradientView.swift */; };
+		73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7388B04E2AE918EC00471295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7388B0532AE918EC00471295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F99BD72AFFAA4E00DE3904 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				7388B0532AE918EC00471295 /* Info.plist */,
 				7302042F2AEAB4590027A2DE /*  SearchResult.swift */,
 				7388B0452AE918EB00471295 /* AppDelegate.swift */,
+				73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */,
 				733714782AFE44C3003D99DA /* DetailViewController.swift */,
 				73F99BD72AFFAA4E00DE3904 /* GradientView.swift */,
 				7388B0472AE918EB00471295 /* SceneDelegate.swift */,
@@ -173,6 +176,7 @@
 				7388B0462AE918EB00471295 /* AppDelegate.swift in Sources */,
 				733714772AFD1F0B003D99DA /* UIImageView+DownloadImage.swift in Sources */,
 				7388B0482AE918EB00471295 /* SceneDelegate.swift in Sources */,
+				73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */,
 				730204302AEAB4590027A2DE /*  SearchResult.swift in Sources */,
 				730204342AEF9E3D0027A2DE /* SearchResultCell.swift in Sources */,
 				73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */,
