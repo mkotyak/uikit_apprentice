@@ -29,8 +29,14 @@ class DetailViewController: UIViewController {
         if searchResult != nil {
             updateUI()
         }
+
+        // Gradient view
+        view.backgroundColor = UIColor.clear
+        let dimmingView = GradientView(frame: CGRect.zero)
+        dimmingView.frame = view.bounds
+        view.insertSubview(dimmingView, at: 0)
     }
-    
+
     deinit {
         downloadTask?.cancel()
     }
