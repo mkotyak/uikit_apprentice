@@ -312,18 +312,33 @@ extension SearchViewController {
 
         if let landscapeViewController {
             landscapeViewController.view.frame = view.bounds
+            landscapeViewController.view.alpha = 0
             view.addSubview(landscapeViewController.view)
             addChild(landscapeViewController)
-            landscapeViewController.didMove(toParent: self)
+
+            coordinator.animate(
+                alongsideTransition: { _ in
+                    landscapeViewController.view.alpha = 1
+                }, completion: { _ in
+                    landscapeViewController.didMove(toParent: self)
+                }
+            )
         }
     }
 
     func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
         if let landscapeViewController {
             landscapeViewController.willMove(toParent: nil)
-            landscapeViewController.view.removeFromSuperview()
-            landscapeViewController.removeFromParent()
-            self.landscapeViewController = nil
+
+            coordinator.animate(
+                alongsideTransition: { _ in
+                    landscapeViewController.view.alpha = 0
+                }, completion: { _ in
+                    landscapeViewController.view.removeFromSuperview()
+                    landscapeViewController.removeFromParent()
+                    self.landscapeViewController = nil
+                }
+            )
         }
     }
 }
