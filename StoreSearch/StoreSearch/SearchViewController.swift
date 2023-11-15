@@ -317,8 +317,9 @@ extension SearchViewController {
             addChild(landscapeViewController)
 
             coordinator.animate(
-                alongsideTransition: { _ in
+                alongsideTransition: { [weak self] _ in
                     landscapeViewController.view.alpha = 1
+                    self?.searchBar.resignFirstResponder()
                 }, completion: { _ in
                     landscapeViewController.didMove(toParent: self)
                 }
