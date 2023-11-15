@@ -1,22 +1,36 @@
 import UIKit
 
 class LandscapeViewController: UIViewController {
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.removeConstraints(view.constraints)
+        view.translatesAutoresizingMaskIntoConstraints = true
+
+        scrollView.removeConstraints(scrollView.constraints)
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+
+        pageControl.removeConstraints(pageControl.constraints)
+        pageControl.translatesAutoresizingMaskIntoConstraints = true
+
+        view.backgroundColor = UIColor(patternImage:
+            UIImage(named: "LandscapeBackground")!
+        )
     }
-    
 
-    /*
-    // MARK: - Navigation
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let safeFrame = view.safeAreaLayoutGuide.layoutFrame
+        scrollView.frame = safeFrame
+        pageControl.frame = .init(
+            x: safeFrame.origin.x,
+            y: safeFrame.size.height - pageControl.frame.size.height,
+            width: safeFrame.size.width,
+            height: pageControl.frame.size.height
+        )
     }
-    */
-
 }
