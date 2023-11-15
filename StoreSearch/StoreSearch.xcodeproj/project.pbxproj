@@ -14,6 +14,7 @@
 		733714742AF3E742003D99DA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733714732AF3E742003D99DA /* LoadingCell.xib */; };
 		733714772AFD1F0B003D99DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733714762AFD1F0B003D99DA /* UIImageView+DownloadImage.swift */; };
 		733714792AFE44C3003D99DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733714782AFE44C3003D99DA /* DetailViewController.swift */; };
+		7364D8282B04C85700E1F186 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364D8272B04C85700E1F186 /* LandscapeViewController.swift */; };
 		7388B0462AE918EB00471295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0452AE918EB00471295 /* AppDelegate.swift */; };
 		7388B0482AE918EB00471295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0472AE918EB00471295 /* SceneDelegate.swift */; };
 		7388B04A2AE918EB00471295 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0492AE918EB00471295 /* SearchViewController.swift */; };
@@ -32,6 +33,7 @@
 		733714732AF3E742003D99DA /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		733714762AFD1F0B003D99DA /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		733714782AFE44C3003D99DA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7364D8272B04C85700E1F186 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		7388B0422AE918EB00471295 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7388B0452AE918EB00471295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7388B0472AE918EB00471295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				7388B0452AE918EB00471295 /* AppDelegate.swift */,
 				733714782AFE44C3003D99DA /* DetailViewController.swift */,
 				73F99BD72AFFAA4E00DE3904 /* GradientView.swift */,
+				7364D8272B04C85700E1F186 /* LandscapeViewController.swift */,
 				7388B0472AE918EB00471295 /* SceneDelegate.swift */,
 				730204332AEF9E3D0027A2DE /* SearchResultCell.swift */,
 				7388B0492AE918EB00471295 /* SearchViewController.swift */,
@@ -188,6 +191,7 @@
 				733714772AFD1F0B003D99DA /* UIImageView+DownloadImage.swift in Sources */,
 				7388B0482AE918EB00471295 /* SceneDelegate.swift in Sources */,
 				73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */,
+				7364D8282B04C85700E1F186 /* LandscapeViewController.swift in Sources */,
 				730204302AEAB4590027A2DE /*  SearchResult.swift in Sources */,
 				730204342AEF9E3D0027A2DE /* SearchResultCell.swift in Sources */,
 				73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */,

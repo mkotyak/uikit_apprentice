@@ -17,6 +17,8 @@ class SearchViewController: UIViewController {
     private var hasSearched: Bool = false
     private var isLoading: Bool = false
 
+    private var landscapeViewController: LandscapeViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(
@@ -54,6 +56,22 @@ class SearchViewController: UIViewController {
         )
 
         searchBar.becomeFirstResponder()
+    }
+
+    override func willTransition(
+        to newCollection: UITraitCollection,
+        with coordinator: UIViewControllerTransitionCoordinator
+    ) {
+        super.willTransition(to: newCollection, with: coordinator)
+
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+        @unknown default:
+            break
+        }
     }
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
@@ -278,6 +296,34 @@ extension SearchViewController {
             let indexPath = sender as! IndexPath
 
             detailViewController.searchResult = searchResults[indexPath.row]
+        }
+    }
+}
+
+// MARK: - Helper Methods
+
+extension SearchViewController {
+    func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        guard landscapeViewController == nil else {
+            return
+        }
+
+        landscapeViewController = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController") as? LandscapeViewController
+
+        if let landscapeViewController {
+            landscapeViewController.view.frame = view.bounds
+            view.addSubview(landscapeViewController.view)
+            addChild(landscapeViewController)
+            landscapeViewController.didMove(toParent: self)
+        }
+    }
+
+    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        if let landscapeViewController {
+            landscapeViewController.willMove(toParent: nil)
+            landscapeViewController.view.removeFromSuperview()
+            landscapeViewController.removeFromParent()
+            self.landscapeViewController = nil
         }
     }
 }
