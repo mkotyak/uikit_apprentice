@@ -320,6 +320,10 @@ extension SearchViewController {
                 alongsideTransition: { [weak self] _ in
                     landscapeViewController.view.alpha = 1
                     self?.searchBar.resignFirstResponder()
+
+                    if self?.presentedViewController != nil {
+                        self?.dismiss(animated: true)
+                    }
                 }, completion: { _ in
                     landscapeViewController.didMove(toParent: self)
                 }

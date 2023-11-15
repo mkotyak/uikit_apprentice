@@ -6,7 +6,7 @@ class BounceAnimationController: NSObject, UIViewControllerAnimatedTransitioning
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        if let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+        if let toViewController = transitionContext.viewController(forKey: .to),
            let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
         {
             let containerView = transitionContext.containerView
