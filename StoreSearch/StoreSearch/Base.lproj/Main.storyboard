@@ -37,7 +37,7 @@
                                 <rect key="frame" x="59" y="56" width="734" height="32"/>
                                 <items>
                                     <barButtonItem style="plain" id="QkL-bV-o1e">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vfU-yu-dPf">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vfU-yu-dPf">
                                             <rect key="frame" x="20" y="0.0" width="694" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
@@ -197,8 +197,12 @@
                         <viewLayoutGuide key="safeArea" id="Ecu-5N-ypl"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fbg-RD-Wb6" firstAttribute="leading" secondItem="Ecu-5N-ypl" secondAttribute="leading" constant="32" id="U3N-vk-B8g"/>
-                            <constraint firstItem="Ecu-5N-ypl" firstAttribute="trailing" secondItem="fbg-RD-Wb6" secondAttribute="trailing" constant="32" id="e9Z-ei-DUw"/>
+                            <constraint firstItem="fbg-RD-Wb6" firstAttribute="leading" secondItem="Ecu-5N-ypl" secondAttribute="leading" constant="32" id="U3N-vk-B8g">
+                                <variation key="heightClass=compact-widthClass=compact" constant="150"/>
+                            </constraint>
+                            <constraint firstItem="Ecu-5N-ypl" firstAttribute="trailing" secondItem="fbg-RD-Wb6" secondAttribute="trailing" constant="32" id="e9Z-ei-DUw">
+                                <variation key="heightClass=compact-widthClass=compact" constant="150"/>
+                            </constraint>
                             <constraint firstItem="fbg-RD-Wb6" firstAttribute="centerY" secondItem="q4r-uz-vcv" secondAttribute="centerY" id="hqv-Nl-KB2"/>
                             <constraint firstItem="Ecu-5N-ypl" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fbg-RD-Wb6" secondAttribute="bottom" constant="16" id="phy-ih-U7Z"/>
                             <constraint firstItem="fbg-RD-Wb6" firstAttribute="centerX" secondItem="q4r-uz-vcv" secondAttribute="centerX" id="sEh-14-s8i"/>

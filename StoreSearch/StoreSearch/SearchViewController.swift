@@ -262,8 +262,11 @@ extension SearchViewController {
             landscapeViewController.willMove(toParent: nil)
 
             coordinator.animate(
-                alongsideTransition: { _ in
+                alongsideTransition: { [weak self] _ in
                     landscapeViewController.view.alpha = 0
+                    if self?.presentedViewController != nil {
+                        self?.dismiss(animated: true)
+                    }
                 }, completion: { _ in
                     landscapeViewController.view.removeFromSuperview()
                     landscapeViewController.removeFromParent()
