@@ -50,10 +50,12 @@ class LandscapeViewController: UIViewController {
             wasPrevioslyDisplayed = true
 
             switch search.state {
-                case .notSearchedYet, .loading, .noResults:
-                    break
-                case .results(let results):
-                    tileButtons(results)
+            case .notSearchedYet, .noResults:
+                break
+            case .loading:
+                showSpinner()
+            case .results(let results):
+                tileButtons(results)
             }
         }
     }
@@ -153,6 +155,17 @@ class LandscapeViewController: UIViewController {
             downloads.append(task)
         }
     }
+
+    private func showSpinner() {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.center = CGPoint(
+            x: scrollView.bounds.midX + 0.5,
+            y: scrollView.bounds.midY + 0.5
+        )
+        spinner.tag = 1000
+        view.addSubview(spinner)
+        spinner.startAnimating()
+    }
 }
 
 // MARK: Actions
@@ -173,6 +186,25 @@ extension LandscapeViewController {
                 y: 0
             )
         }
+    }
+}
+
+// MARK: - Helper Methods
+
+extension LandscapeViewController {
+    func searchResultsReceived() {
+        hideSpinner()
+
+        switch search.state {
+        case .notSearchedYet, .loading, .noResults:
+            break
+        case .results(let list):
+            tileButtons(list)
+        }
+    }
+
+    private func hideSpinner() {
+        view.viewWithTag(1000)?.removeFromSuperview()
     }
 }
 

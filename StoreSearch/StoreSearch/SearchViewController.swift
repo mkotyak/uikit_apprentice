@@ -83,12 +83,17 @@ class SearchViewController: UIViewController {
                     return
                 }
 
-                success ? tableView.reloadData() : showNetworkError()
-            }
-        }
+                if !success {
+                    showNetworkError()
+                }
 
-        tableView.reloadData()
-        searchBar.resignFirstResponder()
+                tableView.reloadData()
+                landscapeViewController?.searchResultsReceived()
+            }
+
+            tableView.reloadData()
+            searchBar.resignFirstResponder()
+        }
     }
 }
 
