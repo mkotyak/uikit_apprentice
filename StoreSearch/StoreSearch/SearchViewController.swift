@@ -77,12 +77,12 @@ class SearchViewController: UIViewController {
         search.performSearch(
             for: searchBar.text!,
             category: segmentedControl.selectedSegmentIndex
-        ) { success in
-            if !success {
-                self.showNetworkError()
+        ) { [weak self] success in
+            guard let self else {
+                return
             }
 
-            self.tableView.reloadData()
+            success ? tableView.reloadData() : showNetworkError()
         }
 
         tableView.reloadData()

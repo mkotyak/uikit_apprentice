@@ -22,22 +22,29 @@ class Search {
             searchResults = []
 
             let url = iTunesURL(searchText: text, categoryIndex: category)
-
             let session = URLSession.shared
-            dataTask = session.dataTask(with: url) { data, response, error in
+
+            dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+                guard let self else {
+                    return
+                }
+
                 var success = false
 
-                if let error = error as NSError?, error.code == -999 {
+                if let error = error as NSError?,
+                   error.code == -999
+                {
                     return
                 }
 
                 if let httpResponse = response as? HTTPURLResponse,
-                   httpResponse.statusCode == 200, let data = data
+                   httpResponse.statusCode == 200,
+                   let data = data
                 {
                     self.searchResults = self.parse(data: data)
                     self.searchResults.sort { $0.name < $1.name }
 
-                    print("Success!")
+                    debugPrint("Success!")
                     self.isLoading = false
                     success = true
                 }
@@ -47,10 +54,15 @@ class Search {
                     self.isLoading = false
                 }
 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else {
+                        return
+                    }
+
                     completion(success)
                 }
             }
+
             dataTask?.resume()
         }
     }
