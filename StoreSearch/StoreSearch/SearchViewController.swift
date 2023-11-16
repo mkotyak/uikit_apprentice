@@ -311,8 +311,11 @@ extension SearchViewController {
         landscapeViewController = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController") as? LandscapeViewController
 
         if let landscapeViewController {
+            landscapeViewController.searchResults = searchResults
+
             landscapeViewController.view.frame = view.bounds
             landscapeViewController.view.alpha = 0
+
             view.addSubview(landscapeViewController.view)
             addChild(landscapeViewController)
 
