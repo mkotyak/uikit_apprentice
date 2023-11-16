@@ -50,12 +50,14 @@ class LandscapeViewController: UIViewController {
             wasPrevioslyDisplayed = true
 
             switch search.state {
-            case .notSearchedYet, .noResults:
-                break
+            case .noResults:
+                showNothingFoundLabel()
             case .loading:
                 showSpinner()
             case .results(let results):
                 tileButtons(results)
+            case .notSearchedYet:
+                break
             }
         }
     }
@@ -166,6 +168,27 @@ class LandscapeViewController: UIViewController {
         view.addSubview(spinner)
         spinner.startAnimating()
     }
+
+    private func showNothingFoundLabel() {
+        let label = UILabel(frame: CGRect.zero)
+        label.text = "Nothing Found"
+        label.textColor = UIColor.label
+        label.backgroundColor = UIColor.clear
+
+        label.sizeToFit()
+
+        var rect = label.frame
+        rect.size.width = ceil(rect.size.width / 2) * 2
+        rect.size.height = ceil(rect.size.height / 2) * 2
+        label.frame = rect
+
+        label.center = CGPoint(
+            x: scrollView.bounds.midX,
+            y: scrollView.bounds.midY
+        )
+        
+        view.addSubview(label)
+    }
 }
 
 // MARK: Actions
@@ -196,10 +219,12 @@ extension LandscapeViewController {
         hideSpinner()
 
         switch search.state {
-        case .notSearchedYet, .loading, .noResults:
-            break
+        case .noResults:
+            showNothingFoundLabel()
         case .results(let list):
             tileButtons(list)
+        case .notSearchedYet, .loading:
+            break
         }
     }
 
