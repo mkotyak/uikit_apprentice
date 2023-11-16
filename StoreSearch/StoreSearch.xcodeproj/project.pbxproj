@@ -16,6 +16,7 @@
 		733714792AFE44C3003D99DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733714782AFE44C3003D99DA /* DetailViewController.swift */; };
 		7364D8282B04C85700E1F186 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364D8272B04C85700E1F186 /* LandscapeViewController.swift */; };
 		7364D82A2B05087E00E1F186 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364D8292B05087E00E1F186 /* FadeOutAnimationController.swift */; };
+		7364D82C2B06366100E1F186 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364D82B2B06366100E1F186 /* Search.swift */; };
 		7388B0462AE918EB00471295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0452AE918EB00471295 /* AppDelegate.swift */; };
 		7388B0482AE918EB00471295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0472AE918EB00471295 /* SceneDelegate.swift */; };
 		7388B04A2AE918EB00471295 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388B0492AE918EB00471295 /* SearchViewController.swift */; };
@@ -36,6 +37,7 @@
 		733714782AFE44C3003D99DA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7364D8272B04C85700E1F186 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		7364D8292B05087E00E1F186 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
+		7364D82B2B06366100E1F186 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7388B0422AE918EB00471295 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7388B0452AE918EB00471295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7388B0472AE918EB00471295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				73F99BDB2AFFB22A00DE3904 /* Animation */,
 				733714752AFD1EDD003D99DA /* Extensions */,
 				7388B04B2AE918EB00471295 /* Main.storyboard */,
+				7364D82B2B06366100E1F186 /* Search.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7364D82C2B06366100E1F186 /* Search.swift in Sources */,
 				7388B04A2AE918EB00471295 /* SearchViewController.swift in Sources */,
 				7388B0462AE918EB00471295 /* AppDelegate.swift in Sources */,
 				7364D82A2B05087E00E1F186 /* FadeOutAnimationController.swift in Sources */,
