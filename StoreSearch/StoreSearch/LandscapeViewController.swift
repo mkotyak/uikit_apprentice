@@ -89,7 +89,7 @@ class LandscapeViewController: UIViewController {
         var column = 0
         var x = marginX
 
-        for (_, result) in searchResults.enumerated() {
+        for (index, result) in searchResults.enumerated() {
             let button = UIButton(type: .custom)
             button.setBackgroundImage(
                 UIImage(named: "LandscapeButton"),
@@ -104,6 +104,13 @@ class LandscapeViewController: UIViewController {
                 y: marginY + CGFloat(row) * itemHeight + paddingVertically,
                 width: buttonWidth,
                 height: buttonHeight
+            )
+
+            button.tag = 2000 + index
+            button.addTarget(
+                self,
+                action: #selector(buttonPressed),
+                for: .touchUpInside
             )
 
             scrollView.addSubview(button)
@@ -186,8 +193,15 @@ class LandscapeViewController: UIViewController {
             x: scrollView.bounds.midX,
             y: scrollView.bounds.midY
         )
-        
+
         view.addSubview(label)
+    }
+
+    @objc private func buttonPressed(_ sender: UIButton) {
+        performSegue(
+            withIdentifier: "ShowDetail",
+            sender: sender
+        )
     }
 }
 
@@ -230,6 +244,23 @@ extension LandscapeViewController {
 
     private func hideSpinner() {
         view.viewWithTag(1000)?.removeFromSuperview()
+    }
+}
+
+// MARK: - Navigation
+
+extension LandscapeViewController {
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "ShowDetail" {
+            if case .results(let list) = search.state {
+                let detailViewController = segue.destination as! DetailViewController
+                let searchResult = list[(sender as! UIButton).tag - 2000]
+                detailViewController.searchResult = searchResult
+            }
+        }
     }
 }
 

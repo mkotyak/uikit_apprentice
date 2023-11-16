@@ -250,6 +250,7 @@
                     <connections>
                         <outlet property="pageControl" destination="7Um-UE-jrn" id="irg-wG-rsO"/>
                         <outlet property="scrollView" destination="VHR-w8-GIZ" id="ESp-N9-yv7"/>
+                        <segue destination="YVK-pN-kOU" kind="presentation" identifier="ShowDetail" id="lVw-Dn-uLE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQ6-xN-WVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,6 +258,9 @@
             <point key="canvasLocation" x="133.80281690140845" y="867.93893129770993"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lVw-Dn-uLE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
