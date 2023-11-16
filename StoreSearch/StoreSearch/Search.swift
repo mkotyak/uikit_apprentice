@@ -3,6 +3,26 @@ import Foundation
 typealias SearchComplete = (Bool) -> Void
 
 class Search {
+    enum Categories: Int {
+        case all
+        case music
+        case software
+        case ebook
+
+        var type: String {
+            switch self {
+            case .all:
+                return ""
+            case .music:
+                return "musicTrack"
+            case .software:
+                return "software"
+            case .ebook:
+                return "ebook"
+            }
+        }
+    }
+
     var searchResults: [SearchResult] = []
     var hasSearched: Bool = false
     var isLoading: Bool = false
@@ -11,7 +31,7 @@ class Search {
 
     func performSearch(
         for text: String,
-        category: Int,
+        category: Categories,
         completion: @escaping SearchComplete
     ) {
         if !text.isEmpty {
@@ -21,7 +41,7 @@ class Search {
             hasSearched = true
             searchResults = []
 
-            let url = iTunesURL(searchText: text, categoryIndex: category)
+            let url = iTunesURL(searchText: text, category: category)
             let session = URLSession.shared
 
             dataTask = session.dataTask(with: url) { [weak self] data, response, error in
@@ -69,24 +89,11 @@ class Search {
 
     private func iTunesURL(
         searchText: String,
-        categoryIndex: Int
+        category: Categories
     ) -> URL {
-        let category: String
-
-        switch categoryIndex {
-        case 1:
-            category = "musicTrack"
-        case 2:
-            category = "software"
-        case 3:
-            category = "ebook"
-        default:
-            category = ""
-        }
-
         let urlString = String(
             format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@",
-            searchText, category
+            searchText, category.type
         )
 
         return URL(string: urlString)!
