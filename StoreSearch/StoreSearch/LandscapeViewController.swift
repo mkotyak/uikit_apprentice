@@ -48,7 +48,13 @@ class LandscapeViewController: UIViewController {
 
         if !wasPrevioslyDisplayed {
             wasPrevioslyDisplayed = true
-            tileButtons(search.searchResults)
+
+            switch search.state {
+                case .notSearchedYet, .loading, .noResults:
+                    break
+                case .results(let results):
+                    tileButtons(results)
+            }
         }
     }
 

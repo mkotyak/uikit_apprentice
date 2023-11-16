@@ -3,6 +3,13 @@ import Foundation
 typealias SearchComplete = (Bool) -> Void
 
 class Search {
+    enum State {
+        case notSearchedYet
+        case loading
+        case noResults
+        case results([SearchResult])
+    }
+
     enum Categories: Int {
         case all
         case music
@@ -23,10 +30,7 @@ class Search {
         }
     }
 
-    var searchResults: [SearchResult] = []
-    var hasSearched: Bool = false
-    var isLoading: Bool = false
-
+    private(set) var state: State = .notSearchedYet
     private var dataTask: URLSessionDataTask?
 
     func performSearch(
@@ -36,10 +40,7 @@ class Search {
     ) {
         if !text.isEmpty {
             dataTask?.cancel()
-
-            isLoading = true
-            hasSearched = true
-            searchResults = []
+            state = .loading
 
             let url = iTunesURL(searchText: text, category: category)
             let session = URLSession.shared
@@ -49,6 +50,7 @@ class Search {
                     return
                 }
 
+                var newState = State.notSearchedYet
                 var success = false
 
                 if let error = error as NSError?,
@@ -61,17 +63,16 @@ class Search {
                    httpResponse.statusCode == 200,
                    let data = data
                 {
-                    self.searchResults = self.parse(data: data)
-                    self.searchResults.sort { $0.name < $1.name }
+                    var searchResults = self.parse(data: data)
 
-                    debugPrint("Success!")
-                    self.isLoading = false
+                    if searchResults.isEmpty {
+                        newState = .noResults
+                    } else {
+                        searchResults.sort { $0.name < $1.name }
+                        newState = .results(searchResults)
+                    }
+
                     success = true
-                }
-
-                if !success {
-                    self.hasSearched = false
-                    self.isLoading = false
                 }
 
                 DispatchQueue.main.async { [weak self] in
@@ -79,6 +80,7 @@ class Search {
                         return
                     }
 
+                    state = newState
                     completion(success)
                 }
             }
