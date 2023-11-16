@@ -7,7 +7,7 @@ class LandscapeViewController: UIViewController {
     private var wasPrevioslyDisplayed: Bool = false
     private var downloads: [URLSessionDownloadTask] = []
 
-    var searchResults: [SearchResult] = []
+    var search: Search!
 
     deinit {
         for task in downloads {
@@ -48,7 +48,7 @@ class LandscapeViewController: UIViewController {
 
         if !wasPrevioslyDisplayed {
             wasPrevioslyDisplayed = true
-            tileButtons(searchResults)
+            tileButtons(search.searchResults)
         }
     }
 

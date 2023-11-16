@@ -95,6 +95,7 @@
 				73F99BD72AFFAA4E00DE3904 /* GradientView.swift */,
 				7364D8272B04C85700E1F186 /* LandscapeViewController.swift */,
 				7388B0472AE918EB00471295 /* SceneDelegate.swift */,
+				7364D82B2B06366100E1F186 /* Search.swift */,
 				730204332AEF9E3D0027A2DE /* SearchResultCell.swift */,
 				7388B0492AE918EB00471295 /* SearchViewController.swift */,
 				7388B04E2AE918EC00471295 /* Assets.xcassets */,
@@ -104,7 +105,6 @@
 				73F99BDB2AFFB22A00DE3904 /* Animation */,
 				733714752AFD1EDD003D99DA /* Extensions */,
 				7388B04B2AE918EB00471295 /* Main.storyboard */,
-				7364D82B2B06366100E1F186 /* Search.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
