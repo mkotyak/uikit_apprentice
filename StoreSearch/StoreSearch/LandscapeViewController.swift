@@ -5,7 +5,15 @@ class LandscapeViewController: UIViewController {
     @IBOutlet var pageControl: UIPageControl!
 
     private var wasPrevioslyDisplayed: Bool = false
+    private var downloads: [URLSessionDownloadTask] = []
+
     var searchResults: [SearchResult] = []
+
+    deinit {
+        for task in downloads {
+            task.cancel()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +79,17 @@ class LandscapeViewController: UIViewController {
         var column = 0
         var x = marginX
 
-        for (index, result) in searchResults.enumerated() {
-            let button = UIButton(type: .system)
-            button.backgroundColor = .white
-            button.setTitle("\(index)", for: .normal)
-            button.frame = .init(
+        for (_, result) in searchResults.enumerated() {
+            let button = UIButton(type: .custom)
+            button.setBackgroundImage(
+                UIImage(named: "LandscapeButton"),
+                for: .normal
+            )
+            downloadImage(
+                for: result,
+                andPlaceOn: button
+            )
+            button.frame = CGRect(
                 x: x + paddingHorizontally,
                 y: marginY + CGFloat(row) * itemHeight + paddingVertically,
                 width: buttonWidth,
@@ -109,6 +123,29 @@ class LandscapeViewController: UIViewController {
 
         pageControl.numberOfPages = numPages
         pageControl.currentPage = 0
+    }
+
+    private func downloadImage(
+        for searchResult: SearchResult,
+        andPlaceOn button: UIButton
+    ) {
+        if let url = URL(string: searchResult.imageSmall) {
+            let task = URLSession.shared.downloadTask(with: url) { [weak button] url, _, error in
+                if error == nil,
+                   let url = url,
+                   let data = try? Data(contentsOf: url),
+                   let image = UIImage(data: data)
+                {
+                    DispatchQueue.main.async {
+                        if let button = button {
+                            button.setImage(image, for: .normal)
+                        }
+                    }
+                }
+            }
+            task.resume()
+            downloads.append(task)
+        }
     }
 }
 
