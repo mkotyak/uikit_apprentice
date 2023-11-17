@@ -10,7 +10,6 @@
 		730204302AEAB4590027A2DE /*  SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302042F2AEAB4590027A2DE /*  SearchResult.swift */; };
 		730204322AEF8F760027A2DE /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 730204312AEF8F760027A2DE /* SearchResultCell.xib */; };
 		730204342AEF9E3D0027A2DE /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730204332AEF9E3D0027A2DE /* SearchResultCell.swift */; };
-		733714742AF3E742003D99DA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 733714732AF3E742003D99DA /* LoadingCell.xib */; };
 		733714772AFD1F0B003D99DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733714762AFD1F0B003D99DA /* UIImageView+DownloadImage.swift */; };
 		733714792AFE44C3003D99DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733714782AFE44C3003D99DA /* DetailViewController.swift */; };
 		7364D8282B04C85700E1F186 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7364D8272B04C85700E1F186 /* LandscapeViewController.swift */; };
@@ -22,6 +21,7 @@
 		7388B04D2AE918EB00471295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04B2AE918EB00471295 /* Main.storyboard */; };
 		7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04E2AE918EC00471295 /* Assets.xcassets */; };
 		739543FD2B07669600A6D29A /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739543FF2B07669600A6D29A /* NothingFoundCell.xib */; };
+		739544012B07671C00A6D29A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739544032B07671C00A6D29A /* LoadingCell.xib */; };
 		73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD72AFFAA4E00DE3904 /* GradientView.swift */; };
 		73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */; };
 		73F99BDD2AFFB23400DE3904 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */; };
@@ -31,7 +31,6 @@
 		7302042F2AEAB4590027A2DE /*  SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " SearchResult.swift"; sourceTree = "<group>"; };
 		730204312AEF8F760027A2DE /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		730204332AEF9E3D0027A2DE /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		733714732AF3E742003D99DA /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		733714762AFD1F0B003D99DA /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		733714782AFE44C3003D99DA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7364D8272B04C85700E1F186 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +45,8 @@
 		7388B0532AE918EC00471295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		739543FE2B07669600A6D29A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		739544002B0766A700A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		739544022B07671C00A6D29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		739544092B07679800A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		73F99BD72AFFAA4E00DE3904 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
@@ -100,7 +101,7 @@
 				730204332AEF9E3D0027A2DE /* SearchResultCell.swift */,
 				7388B0492AE918EB00471295 /* SearchViewController.swift */,
 				7388B04E2AE918EC00471295 /* Assets.xcassets */,
-				733714732AF3E742003D99DA /* LoadingCell.xib */,
+				739544032B07671C00A6D29A /* LoadingCell.xib */,
 				739543FF2B07669600A6D29A /* NothingFoundCell.xib */,
 				730204312AEF8F760027A2DE /* SearchResultCell.xib */,
 				73F99BDB2AFFB22A00DE3904 /* Animation */,
@@ -180,7 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */,
-				733714742AF3E742003D99DA /* LoadingCell.xib in Resources */,
+				739544012B07671C00A6D29A /* LoadingCell.xib in Resources */,
 				730204322AEF8F760027A2DE /* SearchResultCell.xib in Resources */,
 				739543FD2B07669600A6D29A /* NothingFoundCell.xib in Resources */,
 				7388B04D2AE918EB00471295 /* Main.storyboard in Resources */,
@@ -228,6 +229,15 @@
 				739544002B0766A700A6D29A /* nl */,
 			);
 			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		739544032B07671C00A6D29A /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				739544022B07671C00A6D29A /* Base */,
+				739544092B07679800A6D29A /* nl */,
+			);
+			name = LoadingCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
