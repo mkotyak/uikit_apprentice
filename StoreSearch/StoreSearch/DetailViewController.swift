@@ -15,33 +15,45 @@ class DetailViewController: UIViewController {
     @IBOutlet var priceButton: UIButton!
 
     private var dismissStyle = AnimationStyle.fade
+    private var isPopUp: Bool = false
 
-    var searchResult: SearchResult!
+    var searchResult: SearchResult! {
+        didSet {
+            if isViewLoaded {
+                updateUI()
+            }
+        }
+    }
+
     var downloadTask: URLSessionDownloadTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        popupView.layer.cornerRadius = 10
+        if isPopUp {
+            popupView.layer.cornerRadius = 10
+            let gestureRecognizer = UITapGestureRecognizer(
+                target: self,
+                action: #selector(close)
+            )
+            gestureRecognizer.cancelsTouchesInView = false
+            gestureRecognizer.delegate = self
+            view.addGestureRecognizer(gestureRecognizer)
 
-        let gestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(close)
-        )
-
-        gestureRecognizer.cancelsTouchesInView = false
-        gestureRecognizer.delegate = self
-
-        view.addGestureRecognizer(gestureRecognizer)
+            // Gradient view
+            view.backgroundColor = UIColor.clear
+            let dimmingView = GradientView(frame: CGRect.zero)
+            dimmingView.frame = view.bounds
+            view.insertSubview(dimmingView, at: 0)
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(
+                named: "LandscapeBackground")!
+            )
+            popupView.isHidden = true
+        }
 
         if searchResult != nil {
             updateUI()
         }
-
-        // Gradient view
-        view.backgroundColor = UIColor.clear
-        let dimmingView = GradientView(frame: CGRect.zero)
-        dimmingView.frame = view.bounds
-        view.insertSubview(dimmingView, at: 0)
     }
 
     required init?(coder: NSCoder) {
@@ -112,6 +124,8 @@ extension DetailViewController {
         if let largeURL = URL(string: searchResult.imageLarge) {
             downloadTask = artworkImageView.loadImage(url: largeURL)
         }
+
+        popupView.isHidden = false
     }
 }
 

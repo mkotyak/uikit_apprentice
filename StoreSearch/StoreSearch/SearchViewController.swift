@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     private let search: Search = .init()
     private var landscapeViewController: LandscapeViewController?
 
+    weak var splitViewDetail: DetailViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(
@@ -50,7 +52,9 @@ class SearchViewController: UIViewController {
             forCellReuseIdentifier: Constants.loadingCellIdentifier
         )
 
-        searchBar.becomeFirstResponder()
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            searchBar.becomeFirstResponder()
+        }
     }
 
     override func willTransition(
@@ -94,6 +98,17 @@ class SearchViewController: UIViewController {
             tableView.reloadData()
             searchBar.resignFirstResponder()
         }
+    }
+
+    private func hidePrimaryPane() {
+        UIView.animate(
+            withDuration: 0.25,
+            animations: {
+                self.splitViewController!.preferredDisplayMode = .secondaryOnly
+            }, completion: { _ in
+                self.splitViewController!.preferredDisplayMode = .automatic
+            }
+        )
     }
 }
 
@@ -167,8 +182,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+        if view.window!.rootViewController!.traitCollection.horizontalSizeClass == .compact {
+            tableView.deselectRow(at: indexPath, animated: true)
+            performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+        } else {
+            if case .results(let list) = search.state {
+                splitViewDetail?.searchResult = list[indexPath.row]
+            }
+
+            if splitViewController!.displayMode != .oneBesideSecondary {
+                hidePrimaryPane()
+            }
+        }
     }
 
     func tableView(
