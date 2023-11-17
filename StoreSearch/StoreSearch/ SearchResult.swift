@@ -60,6 +60,7 @@ class SearchResult: Codable, CustomStringConvertible {
 
     var type: String {
         let kind = self.kind ?? "audiobook"
+        
         switch kind {
         case "album":
             return NSLocalizedString(
