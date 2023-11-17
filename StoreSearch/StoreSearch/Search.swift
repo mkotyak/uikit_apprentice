@@ -93,11 +93,16 @@ class Search {
         searchText: String,
         category: Categories
     ) -> URL {
+        let locale = Locale.autoupdatingCurrent
+        let language = locale.identifier
+        let countrycode = locale.region ?? "en_US"
+        
         let urlString = String(
-            format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@",
-            searchText, category.type
+            format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@&lang=%@&country=\(countrycode)",
+            searchText, category.type, language
         )
 
+        debugPrint("🚨 \(urlString)")
         return URL(string: urlString)!
     }
 
