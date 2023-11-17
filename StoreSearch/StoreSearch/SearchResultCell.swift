@@ -41,7 +41,13 @@ extension SearchResultCell {
                 comment: "Unknown artist name label"
             )
         } else {
-            artistNameLabel.text = String(format: "%@ (%@)", result.artist, result.type)
+            artistNameLabel.text = String(
+                format: NSLocalizedString(
+                    "ARTIST_NAME_LABEL_FORMAT",
+                    comment: "Format for artist name"
+                ),
+                result.artist, result.type
+            )
         }
 
         artworkImageView.image = UIImage(systemName: "square")

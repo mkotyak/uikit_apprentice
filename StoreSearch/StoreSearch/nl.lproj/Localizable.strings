@@ -43,3 +43,6 @@
 
 /* Unknown artist name label */
 "Unknown" = "Onbekend";
+
+/* Format for artist name */
+"ARTIST_NAME_LABEL_FORMAT" = "%1$@ (%2$@)";
