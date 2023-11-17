@@ -15,8 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet var priceButton: UIButton!
 
     private var dismissStyle = AnimationStyle.fade
-    private var isPopUp: Bool = false
-
+    
+    var isPopUp: Bool = false
     var searchResult: SearchResult! {
         didSet {
             if isViewLoaded {

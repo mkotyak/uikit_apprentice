@@ -7,8 +7,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let _ = (scene as? UIWindowScene) else {
+            return
+        }
+
         searchViewController.splitViewDetail = detailViewController
+        splitViewController.delegate = self
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -55,5 +59,20 @@ extension SceneDelegate {
     var detailViewController: DetailViewController {
         let navigation = splitViewController.viewControllers.last as! UINavigationController
         return navigation.viewControllers.first as! DetailViewController
+    }
+}
+
+// MARK: - UISplitViewControllerDelegate
+
+extension SceneDelegate: UISplitViewControllerDelegate {
+    func splitViewController(
+        _ svc: UISplitViewController,
+        topColumnForCollapsingToProposedTopColumn proposedTopColumn: UISplitViewController.Column
+    ) -> UISplitViewController.Column {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .primary
+        }
+
+        return proposedTopColumn
     }
 }
