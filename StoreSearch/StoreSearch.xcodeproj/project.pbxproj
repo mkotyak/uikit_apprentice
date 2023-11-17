@@ -22,6 +22,7 @@
 		7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7388B04E2AE918EC00471295 /* Assets.xcassets */; };
 		739543FD2B07669600A6D29A /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739543FF2B07669600A6D29A /* NothingFoundCell.xib */; };
 		739544012B07671C00A6D29A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739544032B07671C00A6D29A /* LoadingCell.xib */; };
+		7395440D2B07769A00A6D29A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7395440F2B07769A00A6D29A /* Localizable.strings */; };
 		73F99BD82AFFAA4E00DE3904 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD72AFFAA4E00DE3904 /* GradientView.swift */; };
 		73F99BDA2AFFAFA500DE3904 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */; };
 		73F99BDD2AFFB23400DE3904 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */; };
@@ -48,6 +49,8 @@
 		739544022B07671C00A6D29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
 		739544092B07679800A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		7395440A2B0768CE00A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		7395440E2B07769A00A6D29A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		739544112B07776900A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73F99BD72AFFAA4E00DE3904 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				7388B0532AE918EC00471295 /* Info.plist */,
+				7395440F2B07769A00A6D29A /* Localizable.strings */,
 				7302042F2AEAB4590027A2DE /*  SearchResult.swift */,
 				7388B0452AE918EB00471295 /* AppDelegate.swift */,
 				733714782AFE44C3003D99DA /* DetailViewController.swift */,
@@ -102,12 +106,12 @@
 				730204332AEF9E3D0027A2DE /* SearchResultCell.swift */,
 				7388B0492AE918EB00471295 /* SearchViewController.swift */,
 				7388B04E2AE918EC00471295 /* Assets.xcassets */,
-				739544032B07671C00A6D29A /* LoadingCell.xib */,
-				739543FF2B07669600A6D29A /* NothingFoundCell.xib */,
 				730204312AEF8F760027A2DE /* SearchResultCell.xib */,
 				73F99BDB2AFFB22A00DE3904 /* Animation */,
 				733714752AFD1EDD003D99DA /* Extensions */,
+				739544032B07671C00A6D29A /* LoadingCell.xib */,
 				7388B04B2AE918EB00471295 /* Main.storyboard */,
+				739543FF2B07669600A6D29A /* NothingFoundCell.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -182,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7388B04F2AE918EC00471295 /* Assets.xcassets in Resources */,
+				7395440D2B07769A00A6D29A /* Localizable.strings in Resources */,
 				739544012B07671C00A6D29A /* LoadingCell.xib in Resources */,
 				730204322AEF8F760027A2DE /* SearchResultCell.xib in Resources */,
 				739543FD2B07669600A6D29A /* NothingFoundCell.xib in Resources */,
@@ -240,6 +245,15 @@
 				739544092B07679800A6D29A /* nl */,
 			);
 			name = LoadingCell.xib;
+			sourceTree = "<group>";
+		};
+		7395440F2B07769A00A6D29A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7395440E2B07769A00A6D29A /* en */,
+				739544112B07776900A6D29A /* nl */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

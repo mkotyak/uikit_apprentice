@@ -1,0 +1,45 @@
+/* Localized kind: Album */
+"Album" = "Album";
+
+/* Localized kind: Software */
+"App" = "App";
+
+/* Localized kind: Audio Book */
+"Audio Book" = "Audioboek";
+
+/* Localized kind: Book */
+"Book" = "Boek";
+
+/* Localized kind: E-Book */
+"E-Book" = "E-Boek";
+
+/* Localized kind: Feature Movie */
+"Movie" = "Film";
+
+/* Localized kind: Music Video */
+"Music Video" = "Videoclip";
+
+/* Localized kind: Podcast */
+"Podcast" = "Podcast";
+
+/* Localized kind: Song */
+//"Song" = "Song";
+"Song" = "Liedje";
+
+/* Localized kind: TV Episode */
+"TV Episode" = "TV serie";
+
+/* Error alert: message */
+"There was an error reading from the iTunes Store. Please try again." = "Er ging iets fout bij het communiceren met de iTunes winkel. Probeer het nog eens.";
+
+/* Localized kind: TV Episode */
+"TV Episode" = "TV Episode";
+
+/* Error alert: title */
+"Whoops..." = "Foutje...";
+
+/* No results in landscape view */
+"Nothing Found" = "Niets gevonden";
+
+/* Unknown artist name label */
+"Unknown" = "Onbekend";

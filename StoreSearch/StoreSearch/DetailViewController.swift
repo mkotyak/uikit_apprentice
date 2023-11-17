@@ -78,7 +78,10 @@ extension DetailViewController {
         nameLabel.text = searchResult.name
 
         if searchResult.artist.isEmpty {
-            artistNameLabel.text = "Unknown"
+            artistNameLabel.text = NSLocalizedString(
+                "Unknown",
+                comment: "Unknown artist name label"
+            )
         } else {
             artistNameLabel.text = searchResult.artist
         }
@@ -93,7 +96,10 @@ extension DetailViewController {
 
         let priceText: String
         if searchResult.price == 0 {
-            priceText = "Free"
+            priceText = NSLocalizedString(
+                "Free",
+                comment: "Free search result price"
+            )
         } else if let text = formatter.string(from: searchResult.price as NSNumber) {
             priceText = text
         } else {
