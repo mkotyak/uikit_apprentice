@@ -47,6 +47,7 @@
 		739544002B0766A700A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
 		739544022B07671C00A6D29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
 		739544092B07679800A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
+		7395440A2B0768CE00A6D29A /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		73F99BD72AFFAA4E00DE3904 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		73F99BD92AFFAFA500DE3904 /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		73F99BDC2AFFB23400DE3904 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7388B04C2AE918EB00471295 /* Base */,
+				7395440A2B0768CE00A6D29A /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
