@@ -102,7 +102,6 @@ class Search {
             searchText, category.type, language
         )
 
-        debugPrint("🚨 \(urlString)")
         return URL(string: urlString)!
     }
 
