@@ -13,6 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         searchViewController.splitViewDetail = detailViewController
         splitViewController.delegate = self
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            splitViewController.preferredDisplayMode = .oneBesideSecondary
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
