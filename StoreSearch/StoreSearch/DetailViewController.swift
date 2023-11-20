@@ -1,3 +1,4 @@
+import MessageUI
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -187,5 +188,33 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
 // MARK: - MenuViewControllerDelegate
 
 extension DetailViewController: MenuViewControllerDelegate {
-    func menuViewControllerSendEmail(_ controller: MenuViewController) {}
+    func menuViewControllerSendEmail(_ controller: MenuViewController) {
+        dismiss(animated: true) { [weak self] in
+            guard MFMailComposeViewController.canSendMail() else {
+                return
+            }
+
+            let controller = MFMailComposeViewController()
+            controller.mailComposeDelegate = self
+            controller.setSubject(NSLocalizedString(
+                "Support Request",
+                comment: "Email subject"
+            ))
+
+            controller.setToRecipients(["testemail@gmail.com"])
+            self?.present(controller, animated: true)
+        }
+    }
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+    ) {
+        dismiss(animated: true)
+    }
 }
