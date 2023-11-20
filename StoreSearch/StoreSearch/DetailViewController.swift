@@ -73,7 +73,7 @@ class DetailViewController: UIViewController {
     }
 
     @objc private func showPopover(_ sender: UIBarButtonItem) {
-        guard let popover = storyboard?.instantiateViewController(withIdentifier: "PopoverView") else {
+        guard let popover = storyboard?.instantiateViewController(withIdentifier: "PopoverView") as? MenuViewController else {
             return
         }
 
@@ -82,6 +82,8 @@ class DetailViewController: UIViewController {
         if let presentationController = popover.popoverPresentationController {
             presentationController.barButtonItem = sender
         }
+
+        popover.delegate = self
 
         present(popover, animated: true)
     }
@@ -180,4 +182,10 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
             SlideOutAnimationController()
         }
     }
+}
+
+// MARK: - MenuViewControllerDelegate
+
+extension DetailViewController: MenuViewControllerDelegate {
+    func menuViewControllerSendEmail(_ controller: MenuViewController) {}
 }
